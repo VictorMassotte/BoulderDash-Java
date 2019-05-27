@@ -15,6 +15,11 @@ public final class Controller implements IController {
 
 	/** The model. */
 	private IModel	model;
+	
+	private int speed = 200;
+	
+	private UserOrder StackOrder;
+	
 
 	/**
 	 * Instantiates a new controller.
@@ -61,6 +66,11 @@ public final class Controller implements IController {
 		this.model = model;
 	}
 
+	private getView()
+	{
+		return IView;
+	}
+	
 	/**
      * Order perform.
      *
