@@ -1,4 +1,4 @@
-package contract;
+package contract.controller;
 
 /**
  * The Interface IController.
@@ -11,6 +11,7 @@ public interface IController {
 	 * Control.
 	 */
 	public void control();
+
 
 	public void orderPerform(UserOrder StackOrder);
 }

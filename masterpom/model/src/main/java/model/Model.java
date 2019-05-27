@@ -3,9 +3,9 @@ package model;
 import java.sql.SQLException;
 import java.util.Observable;
 
-import contract.IMap;
-import contract.IMobile;
-import contract.IModel;
+import contract.model.IMap;
+import contract.model.IMobile;
+import contract.model.IModel;
 import entity.HelloWorld;
 
 /**

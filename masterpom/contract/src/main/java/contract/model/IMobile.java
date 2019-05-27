@@ -1,7 +1,8 @@
-package contract;
+package contract.model;
 
 import java.awt.Point;
 
+import contract.controller.UserOrder;
 import showboard.IPawn;
 
 public interface IMobile extends IPawn, IElement {
