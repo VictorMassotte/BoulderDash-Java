@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.SwingUtilities;
 
-import contract.IController;
-import contract.IModel;
-import contract.IView;
-import contract.UserOrder;
+import contract.controller.IController;
+import contract.controller.UserOrder;
+import contract.model.IModel;
+import contract.view.IView;
 
 /**
  * The Class View.

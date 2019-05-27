@@ -4,7 +4,7 @@
  */
 package main;
 
-import contract.UserOrder;
+import contract.controller.UserOrder;
 import controller.Controller;
 import model.Model;
 import view.View;
