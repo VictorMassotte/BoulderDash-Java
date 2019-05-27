@@ -16,7 +16,5 @@ public enum ControllerOrder {
 	/** The Indonesia. */
 	Indonesia,
 
-	Allemand;
-	
-	tzst
+	Allemand
 }
