@@ -1,9 +1,9 @@
 package controller;
 
-import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.UserOrder;
 
 /**
  * The Class Controller.
@@ -11,12 +11,12 @@ import contract.IView;
 public final class Controller implements IController {
 
 	/** The view. */
-	private IView		view;
+	private IView view;
 
 	/** The model. */
-	private IModel	model;
+	private IModel model;
 	
-	private int speed = 200;
+	private static int speed = 200;
 	
 	private UserOrder StackOrder;
 	
@@ -66,9 +66,14 @@ public final class Controller implements IController {
 		this.model = model;
 	}
 
-	private getView()
+	private IView getView()
 	{
-		return IView;
+		return view;
+	}
+	
+	private IModel getModel()
+	{
+		return model;
 	}
 	
 	/**
@@ -82,23 +87,23 @@ public final class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case English:
-				this.model.loadHelloWorld("GB");
+	public void orderPerform(final UserOrder StackOrder) {
+		switch (StackOrder) {
+			case UP:
+				//this.model.loadMoove("UP");  méthode à implémenter
 				break;
-			case Francais:
-				this.model.loadHelloWorld("FR");
+			case DOWN:
+				//this.model.loadMoove("DOWN");
 				break;
-			case Deutsch:
-				this.model.loadHelloWorld("DE");
+			case RIGHT:
+				//this.model.loadMoove("RIGHT");
 				break;
-			case Indonesia:
-				this.model.loadHelloWorld("ID");
+			case LEFT:
+				//this.model.loadMoove("LEFT");
 				break;
 			default:
+				//this.model.loadMoove("NONE");
 				break;
 		}
 	}
-
 }

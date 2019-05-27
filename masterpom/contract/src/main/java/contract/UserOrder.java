@@ -2,6 +2,6 @@ package contract;
 
 public enum UserOrder {
 
-	RIGHT, LEFT, UP, DOWN, NOP
+	RIGHT, LEFT, UP, DOWN, NONE
 
 }

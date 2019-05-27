@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.SwingUtilities;
 
-import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.UserOrder;
 
 /**
  * The Class View.
@@ -37,18 +37,18 @@ public final class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+	protected static UserOrder keyCodeToUserOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
+			case KeyEvent.VK_UP:
+				return UserOrder.UP;
+			case KeyEvent.VK_DOWN:
+				return UserOrder.DOWN;
+			case KeyEvent.VK_LEFT:
+				return UserOrder.LEFT;
+			case KeyEvent.VK_RIGHT:
+				return UserOrder.RIGHT;
 			default:
-				return ControllerOrder.English;
+				return UserOrder.NONE;
 		}
 	}
 
