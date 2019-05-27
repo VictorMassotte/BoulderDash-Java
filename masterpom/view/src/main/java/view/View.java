@@ -22,8 +22,7 @@ public final class View implements IView, Runnable {
 	/**
 	 * Instantiates a new view.
 	 *
-	 * @param model
-	 *          the model
+	 * @param model the model
 	 */
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
@@ -33,22 +32,21 @@ public final class View implements IView, Runnable {
 	/**
 	 * Key code to controller order.
 	 *
-	 * @param keyCode
-	 *          the key code
+	 * @param keyCode the key code
 	 * @return the controller order
 	 */
 	protected static UserOrder keyCodeToUserOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_UP:
-				return UserOrder.UP;
-			case KeyEvent.VK_DOWN:
-				return UserOrder.DOWN;
-			case KeyEvent.VK_LEFT:
-				return UserOrder.LEFT;
-			case KeyEvent.VK_RIGHT:
-				return UserOrder.RIGHT;
-			default:
-				return UserOrder.NONE;
+		case KeyEvent.VK_UP:
+			return UserOrder.UP;
+		case KeyEvent.VK_DOWN:
+			return UserOrder.DOWN;
+		case KeyEvent.VK_LEFT:
+			return UserOrder.LEFT;
+		case KeyEvent.VK_RIGHT:
+			return UserOrder.RIGHT;
+		default:
+			return UserOrder.NONE;
 		}
 	}
 
@@ -73,10 +71,15 @@ public final class View implements IView, Runnable {
 	/**
 	 * Sets the controller.
 	 *
-	 * @param controller
-	 *          the new controller
+	 * @param controller the new controller
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+
+	@Override
+	public void displayMessage(String message) {
+		// TODO Auto-generated method stub
+
 	}
 }

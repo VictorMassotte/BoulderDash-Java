@@ -3,6 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.Observable;
 
+import contract.IMap;
+import contract.IMobile;
 import contract.IModel;
 import entity.HelloWorld;
 
@@ -24,10 +26,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
+	 * Gets the hello world.
+	 *
+	 * @return the hello world
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -38,11 +40,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
-     */
+	 * Sets the hello world.
+	 *
+	 * @param helloWorld the new hello world
+	 */
 	private void setHelloWorld(final HelloWorld helloWorld) {
 		this.helloWorld = helloWorld;
 		this.setChanged();
@@ -50,11 +51,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
+	 * Load hello world.
+	 *
+	 * @param code the code
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -70,10 +70,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -81,5 +81,23 @@ public final class Model extends Observable implements IModel {
 	 */
 	public Observable getObservable() {
 		return this;
+	}
+
+	@Override
+	public IMap getMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IMobile getMyCharacter() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void movePawns() {
+		// TODO Auto-generated method stub
+
 	}
 }
