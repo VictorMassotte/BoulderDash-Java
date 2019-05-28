@@ -53,6 +53,10 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
+			try {
+				Thread.sleep(3);
+			} catch (InterruptedException e) 
+			{e.printStackTrace();}
 	}
 
 	/*
