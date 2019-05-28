@@ -19,7 +19,7 @@ public final class Controller implements IController, IOrderPerformer {
 
 	private static int speed = 200;
 
-	private UserOrder StackOrder;
+	private UserOrder stackOrder;
 
 	/**
 	 * Instantiates a new controller.
@@ -30,8 +30,10 @@ public final class Controller implements IController, IOrderPerformer {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.clearStackOrder();
 	}
 
+	//***SETTERS***//
 	/**
 	 * Control.
 	 */
@@ -63,6 +65,12 @@ public final class Controller implements IController, IOrderPerformer {
 		this.model = model;
 	}
 
+    private void setStackOrder(final UserOrder stackOrder) {
+        this.stackOrder = stackOrder;
+    }
+    
+    
+    //***GETTERS***//
 	private IView getView() {
 		return view;
 	}
@@ -71,6 +79,16 @@ public final class Controller implements IController, IOrderPerformer {
 		return model;
 	}
 
+    private UserOrder getStackOrder() {
+        return this.stackOrder;
+    }
+	
+    
+    //***RAZ***//
+    private void clearStackOrder() {
+        this.stackOrder = UserOrder.NONE;
+    }
+    
 	/**
 	 * Order perform.
 	 *
@@ -81,8 +99,14 @@ public final class Controller implements IController, IOrderPerformer {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final UserOrder StackOrder) {
-		switch (StackOrder) {
+
+	public void orderPerform(final UserOrder stackOrder) {
+		this.setStackOrder(stackOrder);
+		}
+	
+	public final void play()
+	{
+		switch (stackOrder) {
 		case UP:
 			// this.model.loadMoove("UP"); méthode à implémenter
 			break;
@@ -101,3 +125,4 @@ public final class Controller implements IController, IOrderPerformer {
 		}
 	}
 }
+

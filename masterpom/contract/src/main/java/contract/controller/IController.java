@@ -8,10 +8,9 @@ package contract.controller;
 public interface IController {
 
 	/**
-	 * Control.
+	 * play.
 	 */
-	public void control();
-
+	public void play();
 
 	public void orderPerform(UserOrder StackOrder);
 }
