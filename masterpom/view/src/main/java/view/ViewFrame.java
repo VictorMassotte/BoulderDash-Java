@@ -147,6 +147,28 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			//View.setDx(int)
+			View.horizontalMovement();
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			//View.setDx(-int)
+			View.horizontalMovement();
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			//View.setDy(int)
+			View.verticalMovement();
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			//View.setDy(-int)
+			View.verticalMovement();
+		}
+
+		
 	}
 
 	/*

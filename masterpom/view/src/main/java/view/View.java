@@ -67,6 +67,29 @@ public final class View implements IView, Runnable {
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}
+	
+	//*** variable de déplacement ***//
+	private int dx = 0;
+	
+	//***GETTER***//
+	public int getDx() {
+		return dx;
+	}
+
+	//***SETTER***//
+	public void setDx(int dx) {
+		this.dx = dx;
+	}	
+	//***Movement**/
+	public static void horizontalMovement()
+	{
+		// pos du pers + dx
+	}
+	
+	public static void verticalMovement()
+	{
+		// pos du pers + dy
+	}
 
 	/**
 	 * Sets the controller.
@@ -82,4 +105,6 @@ public final class View implements IView, Runnable {
 		// TODO Auto-generated method stub
 
 	}
+
+
 }
