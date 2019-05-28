@@ -34,10 +34,33 @@ public final class Controller implements IController, IOrderPerformer {
 	}
 
 	//***SETTERS***//
+	/**
+	 * Control.
+	 */
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see contract.IController#control()
+	 */
+	public void control() {
+		this.view.printMessage(
+				"Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+	}
+
+	/**
+	 * Sets the view.
+	 *
+	 * @param pview the new view
+	 */
 	private void setView(final IView pview) {
 		this.view = pview;
 	}
 
+	/**
+	 * Sets the model.
+	 *
+	 * @param model the new model
+	 */
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
@@ -76,6 +99,7 @@ public final class Controller implements IController, IOrderPerformer {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
+
 	public void orderPerform(final UserOrder stackOrder) {
 		this.setStackOrder(stackOrder);
 		}
