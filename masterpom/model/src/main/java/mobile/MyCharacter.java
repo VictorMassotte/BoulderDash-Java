@@ -6,27 +6,27 @@ import java.io.IOException;
 
 import contract.controller.UserOrder;
 import contract.model.IMap;
-import contract.model.element.Permeability;
-import contract.model.element.Sprite;
-import contract.model.element.mobile.IMobile;
+import contract.model.IMobile;
+import contract.model.Permeability;
+import contract.model.Sprite;
 
 public class MyCharacter extends Mobile {
-	
+
 	private static final Sprite sprite = new Sprite('H', Sprite.characterTileSet, new Rectangle(16, 0, 16, 16));
 
 	private static final Sprite spriteTurnLeft = new Sprite('H', Sprite.characterTileSet,
 			new Rectangle(16, 16, 16, 16));
-	
+
 	private static final Sprite spriteTurnRight = new Sprite('H', Sprite.characterTileSet,
 			new Rectangle(16, 48, 16, 16));
-	
+
 	private static final Sprite spriteTurnUp = new Sprite('H', Sprite.characterTileSet, new Rectangle(32, 80, 16, 16));
 
 	private static final Sprite spriteTurnDown = new Sprite('H', Sprite.characterTileSet,
 			new Rectangle(64, 16, 16, 16));
-	
+
 	private static final Sprite spriteDie = new Sprite('H', Sprite.characterTileSet, new Rectangle(64, 0, 16, 16));
-	
+
 	public MyCharacter(final int x, final int y, final IMap map) throws IOException {
 		super(x, y, sprite, map, Permeability.BLOCKING);
 		spriteTurnLeft.loadImage();
@@ -36,13 +36,13 @@ public class MyCharacter extends Mobile {
 		spriteDie.loadImage();
 		sprite.loadImage();
 	}
-	
+
 	public final void moveLeft() {
 		super.digDirt();
 		super.moveLeft();
 		this.setSprite(spriteTurnLeft);
 	}
-	
+
 	public final void moveRight() {
 		super.digDirt();
 		super.moveRight();
@@ -60,17 +60,17 @@ public class MyCharacter extends Mobile {
 		super.moveDown();
 		this.setSprite(spriteTurnDown);
 	}
-	
+
 	public final void die() {
 		super.die();
 		this.setSprite(spriteDie);
 	}
-	
+
 	public final void doNothing() {
 		super.doNothing();
 		this.setSprite(sprite);
 	}
-	
+
 	protected boolean mapAllowsMovementTo(final UserOrder direction) {
 		switch (direction) {
 		case UP:
@@ -86,7 +86,7 @@ public class MyCharacter extends Mobile {
 			return true;
 		}
 	}
-	
+
 	protected Boolean pawnsAllowMovementTo(final UserOrder direction) {
 		Boolean pushingAvailable = false;
 		switch (direction) {
@@ -120,8 +120,8 @@ public class MyCharacter extends Mobile {
 		default:
 			break;
 		}
-		
-		//TODO factor
+
+		// TODO factor
 		final Point desiredPosition = this.getPositionFromUserOrder(direction);
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getPosition().equals(desiredPosition)) {
@@ -162,12 +162,11 @@ public class MyCharacter extends Mobile {
 	@Override
 	public Boolean isCrushed() {
 		for (IMobile pawn : this.getMap().getPawns()) {
-			if(pawn.getSprite().getConsoleImage() == 'M'){
+			if (pawn.getSprite().getConsoleImage() == 'M') {
 				if (this.getPosition().equals(pawn.getPosition()))
 					return true;
 			}
 		}
 		return super.isCrushed();
+	}
 }
-}
-

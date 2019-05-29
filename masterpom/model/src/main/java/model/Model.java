@@ -1,86 +1,28 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.Observable;
-
 import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.IModel;
-import entity.HelloWorld;
+import contract.model.Sprite;
+import model.DAO.MapDAO;
 
-/**
- * The Class Model.
- *
- * @author Jean-Aymeric Diet
- */
-public final class Model extends Observable implements IModel {
+public class Model implements IModel {
 
-	/** The helloWorld. */
-	private HelloWorld helloWorld;
+	private IMap map;
 
-	/**
-	 * Instantiates a new model.
-	 */
-	public Model() {
-		this.helloWorld = new HelloWorld();
+	private mobile.MyCharacter mycharacter;
+
+	public Model(int mapID) {
+		super();
+		Sprite.loadBuffers();
+
+		this.setMap(MapDAO.getMapById(mapID));
+
 	}
 
-	/**
-	 * Gets the hello world.
-	 *
-	 * @return the hello world
-	 */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
-	}
+	private void setMap(Object mapByID) {
+		// TODO Auto-generated method stub
 
-	/**
-	 * Sets the hello world.
-	 *
-	 * @param helloWorld the new hello world
-	 */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	/**
-	 * Load hello world.
-	 *
-	 * @param code the code
-	 */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	public void loadHelloWorld(final String code) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getObservable()
-	 */
-	public Observable getObservable() {
-		return this;
 	}
 
 	@Override
@@ -100,4 +42,5 @@ public final class Model extends Observable implements IModel {
 		// TODO Auto-generated method stub
 
 	}
+
 }
