@@ -64,11 +64,8 @@ public class MapDAO extends DAO {
 
 		for (char r : result.getString(mapColumnIndex).toCharArray()) {
 			if (!skipNext) {
-				// Adding map element, if pawn, adding dug dirt
 				tempMap.setOnTheMapXY(currentXToWrite, currentYToWrite, ElementFactory.getFromFileSymbol(r));
 
-				// Now let's check if the element to insert is an IMobile
-				// (boulder, diamond..)
 				if (r == 'O')
 					tempMap.addPawn(new Boulder(currentXToWrite, currentYToWrite, tempMap));
 				else if (r == 'D') {
@@ -90,7 +87,7 @@ public class MapDAO extends DAO {
 
 	private static void testCorrectLevel(int width, int height, String mapString) throws Exception {
 		if (width * height + height != mapString.length()) {
-			throw new Exception("Level is not good : x :" + width + " y: " + height + " size: " + mapString.length());
+			throw new Exception("Is not good : x :" + width + " y: " + height + " size: " + mapString.length());
 
 		}
 
