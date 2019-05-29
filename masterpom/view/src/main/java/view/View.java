@@ -74,7 +74,7 @@ public final class View implements IView, Runnable {
 		 viewFrame.requestFocus();
 	}
     
-	/**public View(IMap map, IMobile Character, IMobile []Pawns) {
+	/**public View(IMap map, IMobile Character, IMobile []Pawns) { test
 
 	}*/
 
