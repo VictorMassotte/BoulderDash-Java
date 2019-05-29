@@ -37,7 +37,7 @@ public class Map extends Observable implements IMap {
 	@Override
 	public int getWidth() {
 		return this.getWidth();
-	}wn
+	}
 
 	@Override
 	public int getHeight() {

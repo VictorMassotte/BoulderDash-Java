@@ -92,7 +92,7 @@ abstract class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 
-	public void die() {
+	protected void die() {
 		this.alive = false;
 	}
 

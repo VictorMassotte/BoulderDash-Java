@@ -17,3 +17,5 @@ public class DiamondStrategy extends FallingObjectStrategy {
 	}
 
 }
+
+//TestV2
