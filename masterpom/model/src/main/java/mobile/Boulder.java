@@ -11,7 +11,7 @@ import contract.model.IMap;
 import contract.model.Permeability;
 import contract.model.Sprite;
 
-public class Boulder extends Mobile {
+public abstract class Boulder extends Mobile {
 
 	private static Sprite sprite = new Sprite('O', Sprite.mapTitleSet, new Rectangle(48, 0, 16, 16));
 
@@ -51,32 +51,31 @@ public class Boulder extends Mobile {
 	}
 
 	protected Boolean pawnsABooleanMovementTo(UserOrder direction) {
-	    	Point desiredPosition = null;
-	    	
-	    	switch(direction) {
-	    	case UP:
-	    		desiredPosition = new Point()this.getX(), this.getY() -1);
-	    		
-	    	case DOWN:
-	    		desiredPosition = new Point(this.getX(), this.getY() +1);
-	    	
-	    	case RIGHT:
-	    		desiredPosition = new Point(this.getX() +1 , this.getY());
-	    		
-	    	case LEFT:
-	    		desiredPosition = new Point(this.getX() - 1, this.getY());
-	    	case NOP:
-	    		
-	    	default:
-	    		return true;
-	    	}
-	    	
-	    	if (this.getMap().getMyCharacter().getPosition().equals(desiredPosition)) {
-	    		return false;
-	    	}
-	    	else {
-	    		return super.pawnsAllowMovementTo(direction);
-	    	}
-	    }
+		Point desiredPosition = null;
+
+		switch (direction) {
+		case UP:
+			desiredPosition = new Point(this.getX(), this.getY() - 1);
+
+		case DOWN:
+			desiredPosition = new Point(this.getX(), this.getY() + 1);
+
+		case RIGHT:
+			desiredPosition = new Point(this.getX() + 1, this.getY());
+
+		case LEFT:
+			desiredPosition = new Point(this.getX() - 1, this.getY());
+		case NONE:
+
+		default:
+			return true;
+		}
+
+		if (this.getMap().getMyCharacter().getPosition().equals(desiredPosition)) {
+			return false;
+		} else {
+			return super.pawnsAllowMovementTo(direction);
+		}
+	}
 
 }
