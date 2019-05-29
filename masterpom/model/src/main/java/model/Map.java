@@ -7,7 +7,7 @@ import contract.model.IElement;
 import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.IModel;
-import contract.model.Permeability;
+import contract.model.Crossable;
 
 public class Map extends Observable implements IMap {
 
@@ -99,7 +99,7 @@ public class Map extends Observable implements IMap {
 	}
 
 	@Override
-	public Permeability getSquarelsOccupied(int x, int y) {
+	public Crossable getSquarelsOccupied(int x, int y) {
 		// TODO Auto-generated method stub
 		return null;
 	}

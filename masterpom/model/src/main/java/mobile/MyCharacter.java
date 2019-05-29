@@ -7,7 +7,7 @@ import java.io.IOException;
 import contract.controller.UserOrder;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.Permeability;
+import contract.model.Crossable;
 import contract.model.Sprite;
 
 public class MyCharacter extends Mobile {
@@ -28,7 +28,7 @@ public class MyCharacter extends Mobile {
 	private static final Sprite spriteDie = new Sprite('H', Sprite.characterTileSet, new Rectangle(64, 0, 16, 16));
 
 	public MyCharacter(final int x, final int y, final IMap map) throws IOException {
-		super(x, y, sprite, map, Permeability.BLOCKING);
+		super(x, y, sprite, map, Crossable.BLOCKING);
 		spriteTurnLeft.loadImage();
 		spriteTurnRight.loadImage();
 		spriteTurnUp.loadImage();
@@ -74,13 +74,13 @@ public class MyCharacter extends Mobile {
 	protected boolean mapAllowsMovementTo(final UserOrder direction) {
 		switch (direction) {
 		case UP:
-			return this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1).getPermeability() != Permeability.BLOCKING;
+			return this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1).getCrossable() != Crossable.BLOCKING;
 		case DOWN:
-			return this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1).getPermeability() != Permeability.BLOCKING;
+			return this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1).getCrossable() != Crossable.BLOCKING;
 		case RIGHT:
-			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY()).getPermeability() != Permeability.BLOCKING;
+			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY()).getCrossable() != Crossable.BLOCKING;
 		case LEFT:
-			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY()).getPermeability() != Permeability.BLOCKING;
+			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY()).getCrossable() != Crossable.BLOCKING;
 		case NOP:
 		default:
 			return true;
@@ -92,11 +92,11 @@ public class MyCharacter extends Mobile {
 		switch (direction) {
 		case RIGHT:
 			pushingAvailable = this.getMap().getOnTheMapXY(getX() + 2, getY())
-					.getPermeability() == Permeability.PENETRABLE;
+					.getCrossable() == Crossable.PENETRABLE;
 			if (pushingAvailable) {
 				for (IMobile pawn : this.getMap().getPawns()) {
 					if (pawn.getPosition().x == getX() + 2 && pawn.getPosition().y == getY()
-							&& pawn.getPermeability() != Permeability.PENETRABLE) {
+							&& pawn.getCrossable() != Crossable.PENETRABLE) {
 						pushingAvailable = false;
 						break;
 					}
@@ -105,11 +105,11 @@ public class MyCharacter extends Mobile {
 			break;
 		case LEFT:
 			pushingAvailable = this.getMap().getOnTheMapXY(getX() - 2, getY())
-					.getPermeability() == Permeability.PENETRABLE;
+					.getCrossable() == Crossable.PENETRABLE;
 			if (pushingAvailable) {
 				for (IMobile pawn : this.getMap().getPawns()) {
 					if (pawn.getPosition().x == getX() - 2 && pawn.getPosition().y == getY()
-							&& pawn.getPermeability() != Permeability.PENETRABLE) {
+							&& pawn.getCrossable() != Crossable.PENETRABLE) {
 						pushingAvailable = false;
 						break;
 					}
@@ -125,7 +125,7 @@ public class MyCharacter extends Mobile {
 		final Point desiredPosition = this.getPositionFromUserOrder(direction);
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getPosition().equals(desiredPosition)) {
-				if (pawn.getPermeability() == Permeability.BLOCKING) {
+				if (pawn.getCrossable() == Crossable.BLOCKING) {
 					if (pushingAvailable) {
 						if (direction == UserOrder.RIGHT)
 							pawn.moveRight();
@@ -137,7 +137,7 @@ public class MyCharacter extends Mobile {
 						return false;
 					}
 
-				} else if (pawn.getPermeability() == Permeability.MINEABLE) {
+				} else if (pawn.getCrossable() == Crossable.MINEABLE) {
 					// Player stepped on a diamond
 
 					pawn.removeFromBoard();

@@ -6,7 +6,7 @@ import java.io.IOException;
 import contract.controller.UserOrder;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.Permeability;
+import contract.model.Crossable;
 import contract.model.Sprite;
 import factory.Element;
 import factory.ElementFactory;
@@ -20,14 +20,14 @@ abstract class Mobile extends Element implements IMobile {
 	private IBoard board;
 	private boolean fallSpeed = false;
 
-	Mobile(final Sprite sprite, final IMap map, final Permeability permeability) {
-		super(sprite, permeability);
+	Mobile(final Sprite sprite, final IMap map, final Crossable Crossable) {
+		super(sprite, Crossable);
 		this.map = map;
 		this.position = new Point();
 	}
 
-	Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
-		this(sprite, map, permeability);
+	Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Crossable Crossable) {
+		this(sprite, map, Crossable);
 		this.getPosition().x = x;
 		this.getPosition().y = y;
 	}
@@ -117,7 +117,7 @@ abstract class Mobile extends Element implements IMobile {
 				}
 			}
 		}
-		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.BLOCKING;
+		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getCrossable() == Crossable.BLOCKING;
 	}
 
 	public boolean canMoveTo(final UserOrder direction) {
@@ -128,16 +128,16 @@ abstract class Mobile extends Element implements IMobile {
 		switch (direction) {
 		case UP:
 			return this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
-					.getPermeability() == Permeability.PENETRABLE;
+					.getCrossable() == Crossable.PENETRABLE;
 		case DOWN:
 			return this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
-					.getPermeability() == Permeability.PENETRABLE;
+					.getCrossable() == Crossable.PENETRABLE;
 		case RIGHT:
 			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
-					.getPermeability() == Permeability.PENETRABLE;
+					.getCrossable() == Crossable.PENETRABLE;
 		case LEFT:
 			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
-					.getPermeability() == Permeability.PENETRABLE;
+					.getCrossable() == Crossable.PENETRABLE;
 		case NONE:
 		default:
 			return true;
@@ -148,7 +148,7 @@ abstract class Mobile extends Element implements IMobile {
 		Point desiredPosition = this.getPositionFromUserOrder(direction);
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getPosition().equals(desiredPosition)) {
-				if (pawn.getPermeability() != Permeability.PENETRABLE) {
+				if (pawn.getCrossable() != Crossable.PENETRABLE) {
 					return false;
 				} else {
 					return true;

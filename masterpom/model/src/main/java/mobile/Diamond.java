@@ -7,7 +7,7 @@ import Strategy.DiamondStrategy;
 import contract.controller.IStrategy;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.Permeability;
+import contract.model.Crossable;
 import contract.model.Sprite;
 
 public class Diamond extends Mobile {
@@ -17,7 +17,7 @@ public class Diamond extends Mobile {
 	private static IStrategy strategy = new DiamondStrategy();
 
 	public Diamond(int x, int y, IMap map) throws IOException {
-		super(x, y, sprite, map, Permeability.MINEABLE);
+		super(x, y, sprite, map, Crossable.MINEABLE);
 		sprite.loadImage();
 	}
 

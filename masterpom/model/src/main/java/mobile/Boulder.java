@@ -8,7 +8,7 @@ import Strategy.BoulderStrategy;
 import contract.controller.IStrategy;
 import contract.controller.UserOrder;
 import contract.model.IMap;
-import contract.model.Permeability;
+import contract.model.Crossable;
 import contract.model.Sprite;
 
 public abstract class Boulder extends Mobile {
@@ -18,7 +18,7 @@ public abstract class Boulder extends Mobile {
 	private static IStrategy strategy = new BoulderStrategy();
 
 	public Boulder(int x, int y, IMap map) throws IOException {
-		super(x, y, sprite, map, Permeability.BLOCKING);
+		super(x, y, sprite, map, Crossable.BLOCKING);
 		sprite.loadImage();
 	}
 
