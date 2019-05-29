@@ -1,6 +1,7 @@
 package mobile;
 
 import java.awt.Point;
+import java.io.IOException;
 
 import contract.controller.UserOrder;
 import contract.model.IMap;
@@ -8,6 +9,7 @@ import contract.model.IMobile;
 import contract.model.Permeability;
 import contract.model.Sprite;
 import factory.Element;
+import factory.ElementFactory;
 import showboard.IBoard;
 
 abstract class Mobile extends Element implements IMobile {
@@ -89,14 +91,14 @@ abstract class Mobile extends Element implements IMobile {
 	public boolean isAlive() {
 		return this.alive;
 	}
-	
-	public void die()
-	{
+
+	public void die() {
 		this.alive = false;
 	}
-	
+
 	public void digDirt() {
-		this.getMap().setOnTheMapXY(this.getX(), this.getY(), ElementFactory.createDugDirt()); //remplacer par terre creusée
+		this.getMap().setOnTheMapXY(this.getX(), this.getY(), ElementFactory.createDugDirt()); // remplacer par terre
+																								// creusée
 		try {
 			this.getMap().getOnTheMapXY(getX(), getY()).getSprite().loadImage();
 
@@ -104,7 +106,7 @@ abstract class Mobile extends Element implements IMobile {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean isCrushed() {
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getSprite().getConsoleImage() == 'O' || pawn.getSprite().getConsoleImage() == 'V') {

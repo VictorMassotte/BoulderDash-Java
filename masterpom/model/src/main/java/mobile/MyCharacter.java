@@ -81,13 +81,13 @@ public class MyCharacter extends Mobile {
 			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY()).getPermeability() != Permeability.BLOCKING;
 		case LEFT:
 			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY()).getPermeability() != Permeability.BLOCKING;
-		case NONE:
+		case NOP:
 		default:
 			return true;
 		}
 	}
 
-	protected boolean pawnsAllowMovementTo(final UserOrder direction) {
+	protected Boolean pawnsAllowMovementTo(final UserOrder direction) {
 		Boolean pushingAvailable = false;
 		switch (direction) {
 		case RIGHT:
@@ -116,7 +116,7 @@ public class MyCharacter extends Mobile {
 				}
 			}
 			break;
-		case NONE:
+		case NOP:
 		default:
 			break;
 		}
@@ -151,7 +151,7 @@ public class MyCharacter extends Mobile {
 	}
 
 	@Override
-	public boolean canMoveTo(final UserOrder direction) {
+	public Boolean canMoveTo(final UserOrder direction) {
 		return this.mapAllowsMovementTo(direction) && this.pawnsAllowMovementTo(direction);
 	}
 
@@ -160,7 +160,7 @@ public class MyCharacter extends Mobile {
 	}
 
 	@Override
-	public boolean isCrushed() {
+	public Boolean isCrushed() {
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getSprite().getConsoleImage() == 'M') {
 				if (this.getPosition().equals(pawn.getPosition()))
