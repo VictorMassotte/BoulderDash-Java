@@ -81,7 +81,7 @@ public class MyCharacter extends Mobile {
 			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY()).getPermeability() != Permeability.BLOCKING;
 		case LEFT:
 			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY()).getPermeability() != Permeability.BLOCKING;
-		case NOP:
+		case NONE:
 		default:
 			return true;
 		}
@@ -116,7 +116,7 @@ public class MyCharacter extends Mobile {
 				}
 			}
 			break;
-		case NOP:
+		case NONE:
 		default:
 			break;
 		}

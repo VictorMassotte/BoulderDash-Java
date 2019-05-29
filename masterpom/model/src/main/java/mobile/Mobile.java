@@ -8,13 +8,14 @@ import contract.model.element.Permeability;
 import contract.model.element.Sprite;
 import contract.model.element.mobile.IMobile;
 import factory.Element;
+import showboard.IBoard;
 
 abstract class Mobile extends Element implements IMobile {
 
 	private Point position;
 	private boolean alive = true;
 	private IMap map;
-	private Iboard board;
+	private IBoard board;
 	private boolean fallSpeed = false;
 
 	Mobile(final Sprite sprite, final IMap map, final Permeability permeability) {
@@ -52,7 +53,7 @@ abstract class Mobile extends Element implements IMobile {
 
 	public void doNothing() {
 		this.setHasMoved();
-		this.fallSpeed = fasle;
+		this.fallSpeed = false;
 	}
 
 	private void setHasMoved() {
@@ -68,6 +69,11 @@ abstract class Mobile extends Element implements IMobile {
 		if (this.isCrushed()) {
 			this.die();
 		}
+	}
+
+	public void die()
+	{
+		this.alive = false;
 	}
 
 	public final int getY() {
@@ -119,7 +125,7 @@ abstract class Mobile extends Element implements IMobile {
 		case LEFT:
 			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
 					.getPermeability() == Permeability.PENETRABLE;
-		case NOP:
+		case NONE:
 		default:
 			return true;
 		}
@@ -155,7 +161,7 @@ abstract class Mobile extends Element implements IMobile {
 		case LEFT:
 			desiredPosition = new Point(this.getX() - 1, this.getY());
 			break;
-		case NOP:
+		case NONE:
 		default:
 			desiredPosition = new Point(this.getX(), this.getY());
 			break;
