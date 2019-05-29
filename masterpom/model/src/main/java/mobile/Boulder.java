@@ -1,9 +1,12 @@
 package mobile;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.io.IOException;
 
 import Strategy.BoulderStrategy;
+import contract.controller.IStrategy;
+import contract.controller.UserOrder;
 import contract.model.IMap;
 import contract.model.Permeability;
 import contract.model.Sprite;
@@ -18,5 +21,62 @@ public class Boulder extends Mobile {
 		super(x, y, sprite, map, Permeability.BLOCKING);
 		sprite.loadImage();
 	}
+
+	public void moveLeft() {
+		super.moveLeft();
+	}
+
+	public void moveRight() {
+		super.moveRight();
+	}
+
+	public void moveUp() {
+
+	}
+
+	public void moveDown() {
+		super.moveDown();
+	}
+
+	protected void die() {
+
+	}
+
+	public final void doNothing() {
+		super.doNothing();
+	}
+
+	public void followMyStrategy() {
+		Boulder.strategy.followStrategy(this, this.getMap());
+	}
+
+	protected Boolean pawnsABooleanMovementTo(UserOrder direction) {
+	    	Point desiredPosition = null;
+	    	
+	    	switch(direction) {
+	    	case UP:
+	    		desiredPosition = new Point()this.getX(), this.getY() -1);
+	    		
+	    	case DOWN:
+	    		desiredPosition = new Point(this.getX(), this.getY() +1);
+	    	
+	    	case RIGHT:
+	    		desiredPosition = new Point(this.getX() +1 , this.getY());
+	    		
+	    	case LEFT:
+	    		desiredPosition = new Point(this.getX() - 1, this.getY());
+	    	case NOP:
+	    		
+	    	default:
+	    		return true;
+	    	}
+	    	
+	    	if (this.getMap().getMyCharacter().getPosition().equals(desiredPosition)) {
+	    		return false;
+	    	}
+	    	else {
+	    		return super.pawnsAllowMovementTo(direction);
+	    	}
+	    }
 
 }
