@@ -15,7 +15,7 @@ public class Sprite {
 	private boolean imageLoaded;
 	private BufferedImage buffer;
 	private Rectangle bufferPart;
-	public static BufferedImage characterTitleSet = null;
+	public static BufferedImage characterTileSet = null;
 	public static BufferedImage mapTitleSet = null;
 
 	public Sprite(char character, BufferedImage imageBuffer, Rectangle part) {
@@ -67,7 +67,7 @@ public class Sprite {
 	public static void loadBuffers() {
 		try {
 			int randomNum = (int) (Math.random() * 6);
-			Sprite.characterTitleSet = ImageIO.read(new File("images/characterSet.png"));
+			Sprite.characterTileSet = ImageIO.read(new File("images/characterSet.png"));
 			Sprite.mapTitleSet = ImageIO.read(new File("images/mapSet.png"));
 			Sprite.mapTitleSet = Sprite.cropBuffer(Sprite.mapTitleSet, randomNum);
 		} catch (IOException e) {
