@@ -1,5 +1,8 @@
 package model;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.IModel;
@@ -12,7 +15,7 @@ public class Model implements IModel {
 
 	private mobile.MyCharacter mycharacter;
 
-	public Model(int mapID) {
+	public Model(int mapID) throws SQLException, IOException {
 		super();
 		Sprite.loadBuffers();
 
@@ -28,7 +31,7 @@ public class Model implements IModel {
 	@Override
 	public IMap getMap() {
 		// TODO Auto-generated method stub
-		return null;
+		return map;
 	}
 
 	@Override

@@ -11,7 +11,6 @@ public class Filleddirt extends MotionLessElement {
 	
 	public Filleddirt() {
 		super(sprite, Crossable.MINEABLE);
-		// TODO Auto-generated constructor stub
 	}
 
 }

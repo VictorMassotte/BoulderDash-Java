@@ -30,7 +30,7 @@ public class ElementFactory {
 	}
 
 	public static Element crateFilleddirt() {
-		return filleddiret;
+		return filleddirt;
 	}
 
 	public static Element getFromFileSymbol(char fileSymbol) {
