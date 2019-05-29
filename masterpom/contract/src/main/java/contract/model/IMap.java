@@ -23,7 +23,7 @@ public interface IMap {
 
 	public void addDiamondCount();
 
-	public IModel getMyCharacter();
+	public IMobile getMyCharacter();
 
 	public void setMyCharacter(IMobile character);
 

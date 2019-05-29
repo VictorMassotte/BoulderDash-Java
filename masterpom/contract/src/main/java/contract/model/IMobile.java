@@ -27,7 +27,7 @@ public interface IMobile extends IPawn, IElement {
 
 	public boolean canMoveTo(UserOrder direction);
 
-	public Point getPosistion();
+	public Point getPosition();
 
 	public void removeFromBoard();
 

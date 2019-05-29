@@ -10,7 +10,7 @@ import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.Sprite;
 
-public abstract class MyCharacter extends Mobile {
+public class MyCharacter extends Mobile {
 
 	private static final Sprite sprite = new Sprite('H', Sprite.characterTileSet, new Rectangle(16, 0, 16, 16));
 

@@ -40,8 +40,8 @@ public class Model implements IModel {
 		return this.myCharacter;
 	}
 
-	private void setMyCharacter(MyCharacter newChara) {
-		this.myCharacter = newChara;
+	private void setMyCharacter(MyCharacter newCharacter) {
+		this.myCharacter = newCharacter;
 	}
 
 	@Override
