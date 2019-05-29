@@ -87,7 +87,7 @@ public class MyCharacter extends Mobile {
 		}
 	}
 
-	protected Boolean pawnsAllowMovementTo(final UserOrder direction) {
+	protected boolean pawnsAllowMovementTo(final UserOrder direction) {
 		Boolean pushingAvailable = false;
 		switch (direction) {
 		case RIGHT:
@@ -151,7 +151,7 @@ public class MyCharacter extends Mobile {
 	}
 
 	@Override
-	public Boolean canMoveTo(final UserOrder direction) {
+	public boolean canMoveTo(final UserOrder direction) {
 		return this.mapAllowsMovementTo(direction) && this.pawnsAllowMovementTo(direction);
 	}
 
@@ -160,7 +160,7 @@ public class MyCharacter extends Mobile {
 	}
 
 	@Override
-	public Boolean isCrushed() {
+	public boolean isCrushed() {
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getSprite().getConsoleImage() == 'M') {
 				if (this.getPosition().equals(pawn.getPosition()))

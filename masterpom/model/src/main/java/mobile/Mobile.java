@@ -4,9 +4,9 @@ import java.awt.Point;
 
 import contract.controller.UserOrder;
 import contract.model.IMap;
-import contract.model.element.Permeability;
-import contract.model.element.Sprite;
-import contract.model.element.mobile.IMobile;
+import contract.model.IMobile;
+import contract.model.Permeability;
+import contract.model.Sprite;
 import factory.Element;
 import showboard.IBoard;
 
@@ -71,11 +71,6 @@ abstract class Mobile extends Element implements IMobile {
 		}
 	}
 
-	public void die()
-	{
-		this.alive = false;
-	}
-
 	public final int getY() {
 		return this.getPosition().y;
 	}
@@ -91,11 +86,21 @@ abstract class Mobile extends Element implements IMobile {
 		return this.map;
 	}
 
-	public Boolean isAlive() {
+	public boolean isAlive() {
 		return this.alive;
 	}
-
-	public Boolean isCrushed() {
+	
+	public void die()
+	{
+		this.alive = false;
+	}
+	
+	public void digDirt()
+	{
+		
+	}
+	
+	public boolean isCrushed() {
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getSprite().getConsoleImage() == 'O' || pawn.getSprite().getConsoleImage() == 'V') {
 				if (pawn.getPosition().x == this.getPosition().x && pawn.getPosition().y == this.getPosition().y - 1
@@ -107,7 +112,7 @@ abstract class Mobile extends Element implements IMobile {
 		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.BLOCKING;
 	}
 
-	public Boolean canMoveTo(final UserOrder direction) {
+	public boolean canMoveTo(final UserOrder direction) {
 		return this.mapAllowsMovementTo(direction) && this.pawnsAllowMovementTo(direction);
 	}
 
@@ -131,7 +136,7 @@ abstract class Mobile extends Element implements IMobile {
 		}
 	}
 
-	protected Boolean pawnsAllowMovementTo(final UserOrder direction) {
+	protected boolean pawnsAllowMovementTo(final UserOrder direction) {
 		Point desiredPosition = this.getPositionFromUserOrder(direction);
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getPosition().equals(desiredPosition)) {
