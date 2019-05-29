@@ -53,23 +53,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param model the model
 	 * @param title the title
 	 * @throws HeadlessException the headless exception
-	 */
-	public ViewFrame(final IModel model, final String title) throws HeadlessException {
-		super(title);
-		this.buildViewFrame(model);
-	}
-
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model the model
-	 * @param title the title
-	 * @param gc    the gc
-	 */
-	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
-		super(title, gc);
-		this.buildViewFrame(model);
-	}
 
 	/**
 	 * Gets the controller.
@@ -114,12 +97,13 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	private void buildViewFrame(final IModel model) {
 		this.setModel(model);
+		this.setTitle("Boulder Dash");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right,
-				60 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(1200 + this.getInsets().left + this.getInsets().right,
+				1200 + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 	}
 
@@ -128,9 +112,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param message the message
 	 */
-	public void printMessage(final String message) {
-		JOptionPane.showMessageDialog(null, message);
-	}
+
 
 	/*
 	 * (non-Javadoc)
@@ -147,28 +129,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-		{
-			//View.setDx(int)
-			View.horizontalMovement();
-		}
-		else if(e.getKeyCode() == KeyEvent.VK_LEFT)
-		{
-			//View.setDx(-int)
-			View.horizontalMovement();
-		}
-		else if(e.getKeyCode() == KeyEvent.VK_UP)
-		{
-			//View.setDy(int)
-			View.verticalMovement();
-		}
-		else if(e.getKeyCode() == KeyEvent.VK_DOWN)
-		{
-			//View.setDy(-int)
-			View.verticalMovement();
-		}
-
-		
+		this.getController().orderPerform(View.keyCodeToUserOrder(e.getKeyCode()));
 	}
 
 	/*

@@ -3,13 +3,13 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import contract.model.Crossable;
 import contract.model.IElement;
 import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.IModel;
+import contract.model.Permeability;
 
-public abstract class Map extends Observable implements IMap {
+public class Map extends Observable implements IMap {
 
 	private int withd;
 
@@ -92,13 +92,14 @@ public abstract class Map extends Observable implements IMap {
 	}
 
 	@Override
-	public void setMyCharacter(IMobile newChara) {
-		this.myCharacter = newChara;
+	public void setMyCharacter() {
+		IMobile newcharacter = null;
+		this.myCharacter = newcharacter;
 
 	}
 
 	@Override
-	public Crossable getSquarelsOccupied(int x, int y) {
+	public Permeability getSquarelsOccupied(int x, int y) {
 		// TODO Auto-generated method stub
 		return null;
 	}

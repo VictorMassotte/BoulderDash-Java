@@ -6,8 +6,11 @@ import javax.swing.SwingUtilities;
 
 import contract.controller.IController;
 import contract.controller.UserOrder;
+import contract.model.IMap;
+import contract.model.IMobile;
 import contract.model.IModel;
 import contract.view.IView;
+import showboard.IPawn;
 
 /**
  * The Class View.
@@ -35,8 +38,13 @@ public final class View implements IView, Runnable {
 	 * @param keyCode the key code
 	 * @return the controller order
 	 */
-	protected static UserOrder keyCodeToUserOrder(final int keyCode) {
-		switch (keyCode) {
+	
+	public void show() {
+		this.viewFrame.setVisible(true);
+	}
+	
+	protected static UserOrder keyCodeToUserOrder(int Code) {
+		switch (Code) {
 		case KeyEvent.VK_UP:
 			return UserOrder.UP;
 		case KeyEvent.VK_DOWN:
@@ -55,9 +63,7 @@ public final class View implements IView, Runnable {
 	 *
 	 * @see contract.IView#printMessage(java.lang.String)
 	 */
-	public void printMessage(final String message) {
-		this.viewFrame.printMessage(message);
-	}
+
 
 	/*
 	 * (non-Javadoc)
@@ -65,31 +71,13 @@ public final class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		this.viewFrame.setVisible(true);
+		 viewFrame.requestFocus();
 	}
-	
-	//*** variable de déplacement ***//
-	private int dx = 0;
-	
-	//***GETTER***//
-	public int getDx() {
-		return dx;
-	}
+    
+	/**public View(IMap map, IMobile Character, IMobile []Pawns) {
 
-	//***SETTER***//
-	public void setDx(int dx) {
-		this.dx = dx;
-	}	
-	//***Movement**/
-	public static void horizontalMovement()
-	{
-		// pos du pers + dx
-	}
-	
-	public static void verticalMovement()
-	{
-		// pos du pers + dy
-	}
+	}*/
+
 
 	/**
 	 * Sets the controller.
@@ -100,11 +88,7 @@ public final class View implements IView, Runnable {
 		this.viewFrame.setController(controller);
 	}
 
-	@Override
-	public void displayMessage(String message) {
-		// TODO Auto-generated method stub
-
-	}
-
-
+	public void updateBoardFrame() {
 }
+
+}	

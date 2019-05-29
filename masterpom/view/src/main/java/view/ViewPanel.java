@@ -1,10 +1,16 @@
 package view;
 
 import java.awt.Graphics;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
+
+import contract.controller.IOrderPerformer;
+import contract.model.IMap;
+import contract.model.IMobile;
+import contract.model.IModel;
 
 /**
  * The Class ViewPanel.
@@ -18,11 +24,41 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -998294702363713521L;
 
-	/**
-	 * Instantiates a new view panel.
-	 *
-	 * @param viewFrame the view frame
-	 */
+
+	 
+	protected IMap map;
+	protected IMobile myCharacter;
+	protected IMobile [] Pawns;
+	protected IOrderPerformer orderPerformer;
+	protected IModel model;
+	
+	protected IMobile getMyCharacter() {
+		return myCharacter;
+	}
+
+	protected void setMyCharacter(IMobile myCharacter) {
+		this.myCharacter = myCharacter;
+	}
+
+	protected IOrderPerformer getOrderPerformer() {
+		return orderPerformer;
+	}
+
+	protected void setOrderPerformer(IOrderPerformer orderPerformer) {
+		this.orderPerformer = orderPerformer;
+	}
+
+	protected IMap getMap() {
+		return map;
+	}
+
+	protected void setMap(IMap map) {
+		this.map = map;
+	}
+
+	protected void setPawns(IMobile[] pawns) {
+		Pawns = pawns;
+	}
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 
@@ -33,6 +69,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @return the view frame
 	 */
+
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}
@@ -57,6 +94,8 @@ class ViewPanel extends JPanel implements Observer {
 				Thread.sleep(3);
 			} catch (InterruptedException e) 
 			{e.printStackTrace();}
+			model = (IModel) arg0;
+			setMap(model.getMap());
 	}
 
 	/*
@@ -69,4 +108,6 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 
 	}
+
+
 }
