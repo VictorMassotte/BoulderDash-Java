@@ -9,8 +9,9 @@ public interface IController {
 
 	/**
 	 * play.
+	 * @throws InterruptedException 
 	 */
-	public void play();
+	public void play() throws InterruptedException;
 
 	public void orderPerform(UserOrder StackOrder);
 }

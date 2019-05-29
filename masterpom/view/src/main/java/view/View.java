@@ -10,38 +10,27 @@ import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.IModel;
 import contract.view.IView;
-import showboard.IPawn;
-
-/**
- * The Class View.
- *
- * @author Jean-Aymeric Diet
- */
+import showboard.BoardFrame;
+//XD
 public final class View implements IView, Runnable {
 
-	/** The frame. */
-	private final ViewFrame viewFrame;
 
-	/**
-	 * Instantiates a new view.
-	 *
-	 * @param model the model
-	 */
-	public View(final IModel model) {
-		this.viewFrame = new ViewFrame(model);
-		SwingUtilities.invokeLater(this);
-	}
-
-	/**
-	 * Key code to controller order.
-	 *
-	 * @param keyCode the key code
-	 * @return the controller order
-	 */
+    protected IMap map;
+    protected IMobile Character;
+    protected IMobile[] Pawns;
+	private BoardFrame boardFrame = new BoardFrame("Boulder Dash");
 	
-	public void show() {
-		this.viewFrame.setVisible(true);
+
+
+	
+	public View(IMap map, IMobile character, IMobile[] pawns) {
+		super();
+		this.map = map;
+		Character = character;
+		Pawns = pawns;
 	}
+
+	
 	
 	protected static UserOrder keyCodeToUserOrder(int Code) {
 		switch (Code) {
@@ -58,37 +47,24 @@ public final class View implements IView, Runnable {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IView#printMessage(java.lang.String)
-	 */
-
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Runnable#run()
-	 */
+	
 	public void run() {
-		 viewFrame.requestFocus();
+		 
 	}
     
-	/**public View(IMap map, IMobile Character, IMobile []Pawns) { test
-
-	}*/
-
-
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller the new controller
-	 */
-	public void setController(final IController controller) {
-		this.viewFrame.setController(controller);
+	protected void setMap(IMap map) {
+		this.map = map;
 	}
 
+
+
+	public void show() {
+		
+	}
+
+
 	public void updateBoardFrame() {
-}
+
+	}
 
 }	

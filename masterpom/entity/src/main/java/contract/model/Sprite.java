@@ -77,7 +77,7 @@ public class Sprite {
 
 	}
 
-	// --------------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------------
 
 	private static BufferedImage cropBuffer(BufferedImage src, int offset) {
 		BufferedImage img = new BufferedImage(16 * 11, 16 * 4, BufferedImage.TYPE_INT_RGB);
