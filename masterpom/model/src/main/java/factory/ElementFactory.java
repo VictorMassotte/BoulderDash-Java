@@ -1,7 +1,5 @@
 package factory;
 
-import factory.Element;
-
 import motionless.Dugdirt;
 import motionless.Filleddirt;
 import motionless.Wall;
@@ -14,11 +12,8 @@ public class ElementFactory {
 
 	private static final Filleddirt filleddirt = new Filleddirt();
 
-	private static Element[] element= {
-			wall,
-			dugdirt,
-			filleddirt
-			
+	private static Element[] elements = { wall, dugdirt, filleddirt
+
 	};
 
 	public static Element createDugdirt() {
@@ -34,11 +29,13 @@ public class ElementFactory {
 	}
 
 	public static Element getFromFileSymbol(char fileSymbol) {
-		for(Element motionlessElement: elements ) {
-			if(motionlessElement.getSprite(.getConsoleImage() == fileSymbol)) {
+		for (Element motionlessElement : elements) {
+			if (motionlessElement.getSprite().getConsoleImage() == fileSymbol) {
 				return motionlessElement;
 			}
 		}
+
+		return dugdirt;
 	}
 
 }

@@ -3,13 +3,13 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.model.Crossable;
 import contract.model.IElement;
 import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.IModel;
-import contract.model.Crossable;
 
-public class Map extends Observable implements IMap {
+public abstract class Map extends Observable implements IMap {
 
 	private int withd;
 
@@ -92,9 +92,8 @@ public class Map extends Observable implements IMap {
 	}
 
 	@Override
-	public void setMyCharacter() {
-		IMobile newcharacter = null;
-		this.myCharacter = newcharacter;
+	public void setMyCharacter(IMobile newChara) {
+		this.myCharacter = newChara;
 
 	}
 

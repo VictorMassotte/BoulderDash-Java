@@ -2,47 +2,58 @@ package model;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import contract.model.IMap;
 import contract.model.IMobile;
 import contract.model.IModel;
 import contract.model.Sprite;
+import mobile.MyCharacter;
 import model.DAO.MapDAO;
 
 public class Model implements IModel {
 
 	private IMap map;
 
-	private mobile.MyCharacter mycharacter;
+	private MyCharacter myCharacter;
 
 	public Model(int mapID) throws SQLException, IOException {
 		super();
 		Sprite.loadBuffers();
-
 		this.setMap(MapDAO.getMapById(mapID));
+		this.setMyCharacter(new MyCharacter(1, 1, this.getMap()));
 
 	}
 
-	private void setMap(Object mapByID) {
-		// TODO Auto-generated method stub
+	private void setMap(Map newMap) {
+		this.map = newMap;
 
 	}
 
 	@Override
 	public IMap getMap() {
-		// TODO Auto-generated method stub
-		return map;
+		return this.map;
 	}
 
 	@Override
-	public IMobile getMyCharacter() {
-		// TODO Auto-generated method stub
-		return null;
+	public MyCharacter getMyCharacter() {
+		return this.myCharacter;
+	}
+
+	private void setMyCharacter(MyCharacter newChara) {
+		this.myCharacter = newChara;
 	}
 
 	@Override
 	public void movePawns() {
-		// TODO Auto-generated method stub
+		ArrayList<IMobile> copyPawns = new ArrayList<>(this.getMap().getPawns());
+
+		for (IMobile pawn : copyPawns) {
+			pawn.followMyStrategy();
+		}
+
+		if (this.getMyCharacter().isCrushed())
+			this.getMyCharacter().die();
 
 	}
 

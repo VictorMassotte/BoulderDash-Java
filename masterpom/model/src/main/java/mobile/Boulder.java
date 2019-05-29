@@ -7,13 +7,13 @@ import java.io.IOException;
 import Strategy.BoulderStrategy;
 import contract.controller.IStrategy;
 import contract.controller.UserOrder;
-import contract.model.IMap;
 import contract.model.Crossable;
+import contract.model.IMap;
 import contract.model.Sprite;
 
 public abstract class Boulder extends Mobile {
 
-	private static Sprite sprite = new Sprite('O', Sprite.mapTitleSet, new Rectangle(48, 0, 16, 16));
+	private static Sprite sprite = new Sprite('O', Sprite.mapTileSet, new Rectangle(48, 0, 16, 16));
 
 	private static IStrategy strategy = new BoulderStrategy();
 

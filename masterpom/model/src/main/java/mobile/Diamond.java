@@ -12,7 +12,7 @@ import contract.model.Sprite;
 
 public abstract class Diamond extends Mobile {
 
-	private static Sprite sprite = new Sprite('D', Sprite.mapTitleSet, new Rectangle(64, 0, 16, 16));
+	private static Sprite sprite = new Sprite('D', Sprite.mapTileSet, new Rectangle(64, 0, 16, 16));
 
 	private static IStrategy strategy = new DiamondStrategy();
 

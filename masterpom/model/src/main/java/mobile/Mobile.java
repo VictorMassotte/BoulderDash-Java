@@ -1,12 +1,11 @@
 package mobile;
 
 import java.awt.Point;
-import java.io.IOException;
 
 import contract.controller.UserOrder;
+import contract.model.Crossable;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.Crossable;
 import contract.model.Sprite;
 import factory.Element;
 import factory.ElementFactory;
@@ -96,16 +95,11 @@ abstract class Mobile extends Element implements IMobile {
 		this.alive = false;
 	}
 
-	public void digDirt() {
+	public void digdirt() {
 
 		this.getMap().setOnTheMapXY(this.getX(), this.getY(), ElementFactory.createDugdirt()); // remplacer par terre
 
-		try {
-			this.getMap().getOnTheMapXY(getX(), getY()).getSprite().loadImage();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		this.getMap().getOnTheMapXY(getX(), getY()).getSprite().loadImage();
 	}
 
 	public boolean isCrushed() {
@@ -127,17 +121,13 @@ abstract class Mobile extends Element implements IMobile {
 	protected boolean mapAllowsMovementTo(final UserOrder direction) {
 		switch (direction) {
 		case UP:
-			return this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1)
-					.getCrossable() == Crossable.PENETRABLE;
+			return this.getMap().getOnTheMapXY(this.getX(), this.getY() - 1).getCrossable() == Crossable.PENETRABLE;
 		case DOWN:
-			return this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1)
-					.getCrossable() == Crossable.PENETRABLE;
+			return this.getMap().getOnTheMapXY(this.getX(), this.getY() + 1).getCrossable() == Crossable.PENETRABLE;
 		case RIGHT:
-			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY())
-					.getCrossable() == Crossable.PENETRABLE;
+			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY()).getCrossable() == Crossable.PENETRABLE;
 		case LEFT:
-			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY())
-					.getCrossable() == Crossable.PENETRABLE;
+			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY()).getCrossable() == Crossable.PENETRABLE;
 		case NONE:
 		default:
 			return true;

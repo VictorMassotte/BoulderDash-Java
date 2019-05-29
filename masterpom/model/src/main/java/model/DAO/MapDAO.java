@@ -55,31 +55,36 @@ public class MapDAO extends DAO {
 
 	}
 
-	private static void placePawnsOnMap(ResultSet result, Map tempMap, int width) throws SQLException, IOException {
+	private static void placePawnsOnMap(final ResultSet result, final Map tempMap, int width)
+			throws SQLException, IOException {
+
 		int currentXToWrite = 0;
 		int currentYToWrite = 0;
 		boolean skipNext = false;
-		
-		for(char r : result.getString(mapColumnIndex).toCharArray()) {
-			if(!skipNext) {
+
+		for (char r : result.getString(mapColumnIndex).toCharArray()) {
+			if (!skipNext) {
+				// Adding map element, if pawn, adding dug dirt
 				tempMap.setOnTheMapXY(currentXToWrite, currentYToWrite, ElementFactory.getFromFileSymbol(r));
-			
-				if(r == 'D') {
+
+				// Now let's check if the element to insert is an IMobile
+				// (boulder, diamond..)
+				if (r == 'O')
+					tempMap.addPawn(new Boulder(currentXToWrite, currentYToWrite, tempMap));
+				else if (r == 'D') {
 					tempMap.addPawn(new Diamond(currentXToWrite, currentYToWrite, tempMap));
-					tempMap.addDiamonCount();
-			
-					}else if(r == 'O'){
-						tempMap.addPawn(new Boulder(currentXToWrite, currentYToWrite, tempMap));
-					}
+					tempMap.addDiamondCount();
 				}
-			currentXToWrite++;
-		}else{
-			skipNext = false;
-		}
-		if(currentXToWrite % width == 0 && currentYToWrite !=0) {
-			currentXToWrite = 0;
-			currentYToWrite++;
-			skipNext = true;
+
+				currentXToWrite++;
+			} else {
+				skipNext = false;
+			}
+			if (currentXToWrite % width == 0 && currentXToWrite != 0) {
+				currentXToWrite = 0;
+				currentYToWrite++;
+				skipNext = true;
+			}
 		}
 	}
 

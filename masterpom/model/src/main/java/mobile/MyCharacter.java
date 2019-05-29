@@ -38,25 +38,25 @@ public abstract class MyCharacter extends Mobile {
 	}
 
 	public final void moveLeft() {
-		super.digDirt();
+		super.digdirt();
 		super.moveLeft();
 		this.setSprite(spriteTurnLeft);
 	}
 
 	public final void moveRight() {
-		super.digDirt();
+		super.digdirt();
 		super.moveRight();
 		this.setSprite(spriteTurnRight);
 	}
 
 	public final void moveUp() {
-		super.digDirt();
+		super.digdirt();
 		super.moveUp();
 		this.setSprite(spriteTurnUp);
 	}
 
 	public final void moveDown() {
-		super.digDirt();
+		super.digdirt();
 		super.moveDown();
 		this.setSprite(spriteTurnDown);
 	}
