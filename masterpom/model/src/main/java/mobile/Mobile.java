@@ -97,8 +97,9 @@ abstract class Mobile extends Element implements IMobile {
 	}
 
 	public void digDirt() {
-		this.getMap().setOnTheMapXY(this.getX(), this.getY(), ElementFactory.createDugDirt()); // remplacer par terre
-																								// creusée
+
+		this.getMap().setOnTheMapXY(this.getX(), this.getY(), ElementFactory.createDugdirt()); // remplacer par terre
+
 		try {
 			this.getMap().getOnTheMapXY(getX(), getY()).getSprite().loadImage();
 
