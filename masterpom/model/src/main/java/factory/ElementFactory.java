@@ -1,6 +1,6 @@
 package factory;
 
-import javax.lang.model.element.Element;
+import factory.Element;
 
 import motionless.Dugdirt;
 import motionless.Filleddirt;
@@ -8,14 +8,14 @@ import motionless.Wall;
 
 public class ElementFactory {
 
-	private static Wall wall = new Wall();
+	private static final Wall wall = new Wall();
 
-	private static Dugdirt dugdirt = new Dugdirt();
+	private static final Dugdirt dugdirt = new Dugdirt();
 
-	private static Filleddirt filleddirt = new Filleddirt();
+	private static final Filleddirt filleddirt = new Filleddirt();
 
 	private static Element[] element= {
-			wall
+			wall,
 			dugdirt,
 			filleddirt
 			
