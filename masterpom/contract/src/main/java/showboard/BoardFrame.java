@@ -86,9 +86,8 @@ public class BoardFrame extends JFrame implements IBoard {
 	 * 
 	 * @see fr.exia.showboard.IBoard#addSquare(fr.exia.showboard.ISquare, int, int)
 	 */
-	@Override
-	public final void addSquare(final ISquare square, final int x, final int y) {
-		this.getBoardPanel().addSquare(square, x, y);
+	public final static void addSquare( ISquare square,  int x, int y) {
+		getBoardPanel().addSquare(square, x, y);
 	}
 
 	/*

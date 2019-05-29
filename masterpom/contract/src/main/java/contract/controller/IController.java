@@ -14,4 +14,8 @@ public interface IController {
 	public void play() throws InterruptedException;
 
 	public void orderPerform(UserOrder StackOrder);
+
+	public void start();
+
+	public IOrderPerformer getOrderPeformer();
 }

@@ -31,7 +31,7 @@ public abstract class Boulder extends Mobile {
 	}
 
 	public void moveUp() {
-
+        super.moveUp();
 	}
 
 	public void moveDown() {

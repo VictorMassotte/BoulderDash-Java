@@ -1,28 +1,78 @@
-/**
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 package main;
 
-import contract.controller.UserOrder;
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+import contract.controller.IController;
+import contract.model.IModel;
+import contract.view.IView;
 import controller.Controller;
-import model.Model;
-import view.View;
+import view.ViewFrame;
+
+
 
 /**
- * The Class Main.
+
+ * <h1>The Class Main.</h1>
+
+ * @author Tejesh Tailor
+
  *
- * @author Jean-Aymeric Diet
+
  */
+
 public abstract class Main {
+    /**
 
-	public static void main(final String[] args) {
-		final Model model = new Model();
-		final View view = new View(model);
-		final Controller controller = new Controller(view, model);
-		view.setController(controller);
+     * This is the main method.
 
-		controller.control();
-		controller.orderPerform(UserOrder.NONE);
-	}
+     *
+
+     * @param args
+
+     *            the arguments
+
+     * @throws SQLException 
+
+     * @throws IOException 
+
+     */
+
+    public static void main(final String[] args) throws SQLException, IOException {
+
+    	
+
+    	String idToAsk= JOptionPane.showInputDialog("Choose your input id of the map : ", 1);
+
+        int idAsked = Integer.parseInt(idToAsk);
+
+        
+
+    	final IModel model = new IModel(idAsked);
+
+    	final ViewFrame view = new ViewFrame(model.getMap(), model.getMyCharacter(), model.getMap().getPawns());
+
+        final IController controller = new Controller(view, model);
+
+        view.setOrderPerformer(controller.getOrderPeformer());
+
+
+
+        try {
+
+            controller.start();
+
+        } catch (InterruptedException e) {
+
+        	System.out.println(e.getMessage());
+
+			e.printStackTrace();
+
+		}
+
+    }
+
+}
 }

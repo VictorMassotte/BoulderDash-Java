@@ -42,10 +42,6 @@ public final class Controller implements IController, IOrderPerformer {
 	 *
 	 * @see contract.IController#control()
 	 */
-	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou "
-				+ "'I', pour afficher Hello world dans la langue d votre choix.");
-	}
 
 	/**
 	 * Sets the view.
@@ -104,7 +100,7 @@ public final class Controller implements IController, IOrderPerformer {
 		this.setStackOrder(stackOrder);
 		}
 	
-	public final void play() throws InterruptedException 
+	public final void play()
 	{
 		switch (stackOrder) {
 		case UP:
@@ -123,6 +119,18 @@ public final class Controller implements IController, IOrderPerformer {
 			// this.model.loadMoove("NONE");
 			break;
 		}
+	}
+
+	@Override
+	public void start() {
+
+		
+	}
+
+	@Override
+	public IOrderPerformer getOrderPeformer() {
+
+		return null;
 	}
 }
 

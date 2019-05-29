@@ -167,4 +167,22 @@ public class MyCharacter extends Mobile {
 		}
 		return super.isCrushed();
 	}
+
+	@Override
+	public void followMyStrategy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public UserOrder getLastWellTouched() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setLastWallTouched(UserOrder userOrder) {
+		// TODO Auto-generated method stub
+		
+	}
 }
