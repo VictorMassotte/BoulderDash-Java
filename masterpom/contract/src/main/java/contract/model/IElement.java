@@ -8,7 +8,7 @@ public interface IElement extends ISquare {
 
 	public Sprite getSprite();
 
-	public Permeability getPermeability();
+	public Crossable getCrossable();
 
 	public Image getImage();
 

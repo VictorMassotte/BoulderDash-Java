@@ -1,14 +1,14 @@
 package motionless;
 
-import contract.model.Permeability;
+import contract.model.Crossable;
 import contract.model.Sprite;
 import factory.Element;
 
 public abstract class MotionLessElement extends Element 
 {
 	
-	public MotionLessElement(Sprite sprite, Permeability permeability)
+	public MotionLessElement(Sprite sprite, Crossable crossable)
 	{
-		super(sprite, permeability);
+		super(sprite, crossable);
 	}
 }

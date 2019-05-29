@@ -1,6 +1,6 @@
 package contract.model;
 
-public enum Permeability {
+public enum Crossable {
 
 	BLOCKING, PENETRABLE, MINEABLE;
 

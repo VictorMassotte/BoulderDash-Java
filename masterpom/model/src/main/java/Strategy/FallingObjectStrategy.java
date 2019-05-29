@@ -4,7 +4,7 @@ import contract.controller.IStrategy;
 import contract.controller.UserOrder;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.Permeability;
+import contract.model.Crossable;
 
 public class FallingObjectStrategy implements IStrategy {
 
@@ -22,7 +22,7 @@ public class FallingObjectStrategy implements IStrategy {
 					if (currentPawn.canMoveTo(UserOrder.LEFT)) {
 
 						if (map.getSquarelsOccupied(pawnVerif.getPosistion().x - 1,
-								pawnVerif.getPosistion().y) == Permeability.PENETRABLE) {
+								pawnVerif.getPosistion().y) == Crossable.PENETRABLE) {
 							currentPawn.moveLeft();
 							return;
 						}
@@ -32,7 +32,7 @@ public class FallingObjectStrategy implements IStrategy {
 					if (currentPawn.canMoveTo(UserOrder.RIGHT)) {
 
 						if (map.getSquarelsOccupied(pawnVerif.getPosistion().x + 1,
-								pawnVerif.getPosistion().y) == Permeability.PENETRABLE) {
+								pawnVerif.getPosistion().y) == Crossable.PENETRABLE) {
 							currentPawn.moveRight();
 							return;
 						}

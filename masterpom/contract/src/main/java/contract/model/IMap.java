@@ -27,7 +27,7 @@ public interface IMap {
 
 	public void setMyCharacter();
 
-	public Permeability getSquarelsOccupied(int x, int y);
+	public Crossable getSquarelsOccupied(int x, int y);
 
 	public void addPawn(IMobile pawn);
 

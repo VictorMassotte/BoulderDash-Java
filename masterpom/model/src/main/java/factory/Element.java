@@ -3,18 +3,18 @@ package factory;
 import java.awt.Image;
 
 import contract.model.IElement;
-import contract.model.Permeability;
+import contract.model.Crossable;
 import contract.model.Sprite;
 
 public class Element implements IElement {
 	
 	private Sprite sprite;
 	
-	private Permeability permeability;
+	private Crossable Crossable;
 
-	public Element(final Sprite sprite, final Permeability permeability) {
+	public Element(final Sprite sprite, final Crossable Crossable) {
 		this.setSprite(sprite);
-		this.setPermeability(permeability);
+		this.setCrossable(Crossable);
 	}
 	
 	@Override
@@ -24,7 +24,7 @@ public class Element implements IElement {
 	}
 
 	@Override
-	public Permeability getPermeability() {
+	public Crossable getCrossable() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -39,8 +39,8 @@ public class Element implements IElement {
 		this.sprite = sprite;
 	}
 
-	public void setPermeability(Permeability permeability) {
-		this.permeability = permeability;
+	public void setCrossable(Crossable Crossable) {
+		this.Crossable = Crossable;
 	}
 
 }
