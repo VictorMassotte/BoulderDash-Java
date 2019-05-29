@@ -20,7 +20,7 @@ public class Model implements IModel {
 	public Model(int mapID) throws SQLException, IOException {
 		super();
 		Sprite.loadBuffers();
-		this.setMap(MapDAO.getMapById(mapID));
+		this.setMap((Map) MapDAO.getMapById(mapID));
 		this.setMyCharacter(new MyCharacter(1, 1, this.getMap()));
 
 	}
