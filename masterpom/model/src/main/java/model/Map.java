@@ -1,13 +1,13 @@
 package model;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.model.Crossable;
 import contract.model.IElement;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.IModel;
-import contract.model.Permeability;
 
 public class Map extends Observable implements IMap {
 
@@ -23,6 +23,8 @@ public class Map extends Observable implements IMap {
 
 	private int diamondCount = 0;
 
+	// -------------------------------------------------------------------------
+
 	public Map(int newWidth, int newHeight, IElement[][] newMap) {
 
 		super();
@@ -33,6 +35,8 @@ public class Map extends Observable implements IMap {
 		this.pawns = new ArrayList<IMobile>();
 
 	}
+
+	// -------------------------------------------------------------------------------------
 
 	@Override
 	public int getWidth() {
@@ -46,19 +50,23 @@ public class Map extends Observable implements IMap {
 
 	@Override
 	public IElement getOnTheMapXY(int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
+		if (x >= 0 && x < this.getWidth() && y >= 0 && y < this.getHeight()) {
+			return this.map[x][y];
+		} else {
+			return this.map[0][0];
+		}
 	}
 
 	@Override
 	public void setOnTheMapXY(int x, int y, IElement elem) {
-		// TODO Auto-generated method stub
+		this.map[x][y] = elem;
 
 	}
 
 	@Override
 	public void setMobileHasChanged() {
-		// TODO Auto-generated method stub
+		this.setChanged();
+		this.notifyObservers();
 
 	}
 
@@ -86,22 +94,32 @@ public class Map extends Observable implements IMap {
 	}
 
 	@Override
-	public IModel getMyCharacter() {
-		// TODO Auto-generated method stub
-		return null;
+	public IMobile getMyCharacter() {
+		return this.myCharacter;
 	}
 
 	@Override
-	public void setMyCharacter() {
-		IMobile newcharacter = null;
-		this.myCharacter = newcharacter;
+	public void setMyCharacter(IMobile newChara) {
+		this.myCharacter = newChara;
 
 	}
 
 	@Override
-	public Permeability getSquarelsOccupied(int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
+	public Crossable getSquarelsOccupied(int x, int y) {
+		Point point = new Point(x, y);
+		for (IMobile pawn : this.getPawns()) {
+			if (pawn.getPosition().equals(point)) {
+
+				return pawn.getCrossable();
+			}
+		}
+
+		if (this.getMyCharacter().getPosition().equals(point)) {
+
+			return this.getMyCharacter().getCrossable();
+		}
+
+		return this.getOnTheMapXY(x, y).getCrossable();
 	}
 
 	@Override
@@ -112,8 +130,18 @@ public class Map extends Observable implements IMap {
 
 	@Override
 	public ArrayList<IMobile> getPawns() {
-		// TODO Auto-generated method stub
 		return this.pawns;
 	}
 
+	@Override
+	public String toString() {
+		String temp = new String();
+		for (int y = 0; y < this.getHeight(); y++) {
+			for (int x = 0; x < this.getWidth(); x++) {
+				temp += map[x][y].getSprite().getConsoleImage();
+			}
+			temp += '\n';
+		}
+		return temp;
+	}
 }

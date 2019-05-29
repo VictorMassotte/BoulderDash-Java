@@ -68,7 +68,7 @@ public class Sprite {
 		try {
 			int randomNum = (int) (Math.random() * 6);
 			Sprite.characterTileSet = ImageIO.read(new File("images/characterSet.png"));
-			Sprite.mapTileSet = ImageIO.read(new File("images/mapSet.png"));
+			Sprite.mapTileSet = ImageIO.read(new File("images/map.png"));
 			Sprite.mapTileSet = Sprite.cropBuffer(Sprite.mapTileSet, randomNum);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -77,7 +77,7 @@ public class Sprite {
 
 	}
 
-	// --------------------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------------------
 
 	private static BufferedImage cropBuffer(BufferedImage src, int offset) {
 		BufferedImage img = new BufferedImage(16 * 11, 16 * 4, BufferedImage.TYPE_INT_RGB);
