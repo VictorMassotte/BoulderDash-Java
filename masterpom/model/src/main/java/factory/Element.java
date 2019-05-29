@@ -10,37 +10,34 @@ public class Element implements IElement {
 	
 	private Sprite sprite;
 	
-	private Crossable Crossable;
+	private Crossable crossable;
 
-	public Element(final Sprite sprite, final Crossable Crossable) {
+	public Element(final Sprite sprite, final Crossable crossable) {
 		this.setSprite(sprite);
-		this.setCrossable(Crossable);
+		this.setCrossable(crossable);
 	}
 	
 	@Override
 	public Sprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sprite;
 	}
 
 	@Override
 	public Crossable getCrossable() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.crossable;
 	}
 
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getSprite().getImage();
 	}
 
 	public void setSprite(Sprite sprite) {
 		this.sprite = sprite;
 	}
 
-	public void setCrossable(Crossable Crossable) {
-		this.Crossable = Crossable;
+	public void setCrossable(Crossable crossable) {
+		this.crossable = crossable;
 	}
 
 }
