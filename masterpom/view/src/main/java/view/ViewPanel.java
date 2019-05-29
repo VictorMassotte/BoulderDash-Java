@@ -5,39 +5,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+
 import contract.model.IMap;
 import contract.model.IMobile;
 import contract.view.IView;
 
-
-
-/**
-
- * <h1>The Class ViewFacade provides a facade of the View component.</h1>
-
- *
-
- * @author Maxence Duhoux
-
- * @version 1.0
-
- */
-
 public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener {
-
-	/**
-
-	 * Instantiates a new view facade.
-
-	 * 
-
-	 * @throws IOException
-
-	 *             reject exceptions
-
-	 */
 
 	public ViewPanel(final IMap map, final IMobile character, final ArrayList<IMobile> pawns) throws IOException {
 
@@ -51,31 +27,15 @@ public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener
 
 		this.setCloseView(this.getPreferableViewPort());
 
-
-
 		SwingUtilities.invokeLater(this);
 
 	}
-
-
-
-	/**
-
-	 * Displays the message in dialog box.
-
-	 * 
-
-	 * @see contract.view.IView#displayMessage(java.lang.String)
-
-	 */
 
 	public final void displayMessage(final String message) {
 
 		JOptionPane.showMessageDialog(null, message);
 
 	}
-
-
 
 	private void setMap(final IMap newMap) throws IOException {
 
@@ -93,14 +53,6 @@ public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener
 
 	}
 
-
-
-	/**
-
-	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
-
-	 */
-
 	@Override
 
 	public final void keyPressed(final KeyEvent keyEvent) {
@@ -117,8 +69,6 @@ public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener
 
 	}
 
-
-
 	@Override
 
 	public void keyReleased(final KeyEvent keyEvent) {
@@ -127,8 +77,6 @@ public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener
 
 	}
 
-
-
 	@Override
 
 	public void keyTyped(final KeyEvent keyEvent) {
@@ -136,8 +84,6 @@ public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener
 		// Nop
 
 	}
-
-
 
 	@Override
 
@@ -154,8 +100,6 @@ public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener
 		boardFrame.setFocusable(true);
 
 		boardFrame.setFocusTraversalKeysEnabled(false);
-
-		
 
 		for (int x = 0; x < this.getMap().getWidth(); x++) {
 
@@ -175,26 +119,10 @@ public class ViewPanel extends ViewFrame implements IView, Runnable, KeyListener
 
 		}
 
-
-
 		this.getMap().getObservable().addObserver(boardFrame.getObserver());
-
-	
-
-
 
 		boardFrame.setVisible(true);
 
-
-
 	}
 
-
-
-	/**
-
-	 * Move the view to focus on the character.
-
-	 */
 }
-

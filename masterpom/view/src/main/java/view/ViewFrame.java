@@ -11,50 +11,28 @@ import contract.model.IMobile;
 import contract.view.IView;
 import showboard.BoardFrame;
 
-	/**
 
-	 * The Class GenericView.</h1>
-
-	 * 
-
-	 * @author Tejesh Tailor
-
-	 * @version 1.0
-
-	 */
-//Test
 	public class ViewFrame implements IView  {
 		   
 
-		/** The Constant squareSize. */
+
 
 		protected static final int squareSize = Toolkit.getDefaultToolkit().getScreenSize().width / 20;
 
 
-
-		/** The map. */
-
 		protected IMap map = null;
 
 
-
-		/** The player's character. */
-
 		protected IMobile myCharacter = null;
-
-		/** The list of pawns. */
 
 		protected ArrayList<IMobile> pawns = null;
 
-		/** The close view on the player. */
 
 		protected Rectangle closeView = null;
 
-		/** The order performer. */
 
 		protected IOrderPerformer orderPerformer = null;
 
-		/** The BoardFrame. */
 
 		protected final showboard.BoardFrame boardFrame = new showboard.BoardFrame("BoulderDash");
 
@@ -69,20 +47,6 @@ import showboard.BoardFrame;
 		}
 
 
-
-		/**
-
-		 * Key code to user order.
-
-		 *
-
-		 * @param keyCode
-
-		 *            the key code
-
-		 * @return the user order
-
-		 */
 
 		protected static UserOrder keyCodeToUserOrder(final int keyCode) {
 
@@ -148,15 +112,6 @@ import showboard.BoardFrame;
 
 		}
 
-		/**
-
-		 * Gets a reasonable size for the close view depending on the map.
-
-		 * 
-
-		 * @return A rectangle with reasonable dimensions
-
-		 */
 
 		protected Rectangle getPreferableViewPort() {
 
@@ -165,8 +120,6 @@ import showboard.BoardFrame;
 			int preferableHeight;
 
 
-
-			// First let's find a reasonable width
 
 			if ((int) (map.getWidth() * 0.75) > 10) {
 
@@ -183,7 +136,6 @@ import showboard.BoardFrame;
 			}
 
 
-			// Now the same with height
 
 			if ((int) (map.getHeight() * 0.75) > 10) {
 
@@ -234,12 +186,6 @@ import showboard.BoardFrame;
 		}
 
 
-		/**
-
-		 * Update the board frame and redraws squares.
-
-		 */
-
 		public void updateBoardFrame(){
 
 			for (int x = 0; x < this.getMap().getWidth(); x++) {
@@ -254,17 +200,6 @@ import showboard.BoardFrame;
 
 		}
 
-
-
-		/**
-
-		 * 
-
-		 * @param newPawns
-
-		 *            The pawn list.
-
-		 */
 
 		protected void setPawns(final ArrayList<IMobile> newPawns) {
 
