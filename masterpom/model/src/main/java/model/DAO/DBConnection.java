@@ -1,4 +1,4 @@
-package model;
+package model.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
  */
 final class DBConnection {
 	/** The instance. */
-	private static DBConnection	INSTANCE = null;
+	private static DBConnection INSTANCE = null;
 
 	/** The connection. */
 	private Connection connection;
@@ -24,8 +24,8 @@ final class DBConnection {
 	}
 
 	/**
-	 * Gets the single instance of DBConnection.
-	 *
+	 * Gets the single instance of DBConnectioz
+	 * 
 	 * @return single instance of DBConnection
 	 */
 	public static synchronized DBConnection getInstance() {
@@ -44,7 +44,8 @@ final class DBConnection {
 		final DBProperties dbProperties = new DBProperties();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
+			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(),
+					dbProperties.getPassword());
 		} catch (final ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (final SQLException e) {

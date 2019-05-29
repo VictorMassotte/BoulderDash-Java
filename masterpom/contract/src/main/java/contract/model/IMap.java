@@ -1,5 +1,6 @@
 package contract.model;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 public interface IMap {
@@ -10,7 +11,7 @@ public interface IMap {
 
 	public IElement getOnTheMapXY(int x, int y);
 
-	public void setOnTheMapXY(int x, int y, IElement element);
+	public void setOnTheMapXY(int x, int y, IElement elem);
 
 	public void setMobileHasChanged();
 
@@ -30,6 +31,6 @@ public interface IMap {
 
 	public void addPawn(IMobile pawn);
 
-	public IMobile getPawns();
+	public ArrayList<IMobile> getPawns();
 
 }
