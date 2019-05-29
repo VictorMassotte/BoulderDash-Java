@@ -5,12 +5,12 @@ import java.io.IOException;
 
 import Strategy.DiamondStrategy;
 import contract.controller.IStrategy;
+import contract.model.Crossable;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.Crossable;
 import contract.model.Sprite;
 
-public class Diamond extends Mobile {
+public abstract class Diamond extends Mobile {
 
 	private static Sprite sprite = new Sprite('D', Sprite.mapTitleSet, new Rectangle(64, 0, 16, 16));
 

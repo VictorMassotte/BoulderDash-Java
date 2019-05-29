@@ -25,7 +25,7 @@ public interface IMap {
 
 	public IModel getMyCharacter();
 
-	public void setMyCharacter();
+	public void setMyCharacter(IMobile character);
 
 	public Crossable getSquarelsOccupied(int x, int y);
 

@@ -5,12 +5,12 @@ import java.awt.Rectangle;
 import java.io.IOException;
 
 import contract.controller.UserOrder;
+import contract.model.Crossable;
 import contract.model.IMap;
 import contract.model.IMobile;
-import contract.model.Crossable;
 import contract.model.Sprite;
 
-public class MyCharacter extends Mobile {
+public abstract class MyCharacter extends Mobile {
 
 	private static final Sprite sprite = new Sprite('H', Sprite.characterTileSet, new Rectangle(16, 0, 16, 16));
 
@@ -81,18 +81,17 @@ public class MyCharacter extends Mobile {
 			return this.getMap().getOnTheMapXY(this.getX() + 1, this.getY()).getCrossable() != Crossable.BLOCKING;
 		case LEFT:
 			return this.getMap().getOnTheMapXY(this.getX() - 1, this.getY()).getCrossable() != Crossable.BLOCKING;
-		case NOP:
+		case NONE:
 		default:
 			return true;
 		}
 	}
 
-	protected Boolean pawnsAllowMovementTo(final UserOrder direction) {
+	protected boolean pawnsAllowMovementTo(final UserOrder direction) {
 		Boolean pushingAvailable = false;
 		switch (direction) {
 		case RIGHT:
-			pushingAvailable = this.getMap().getOnTheMapXY(getX() + 2, getY())
-					.getCrossable() == Crossable.PENETRABLE;
+			pushingAvailable = this.getMap().getOnTheMapXY(getX() + 2, getY()).getCrossable() == Crossable.PENETRABLE;
 			if (pushingAvailable) {
 				for (IMobile pawn : this.getMap().getPawns()) {
 					if (pawn.getPosition().x == getX() + 2 && pawn.getPosition().y == getY()
@@ -104,8 +103,7 @@ public class MyCharacter extends Mobile {
 			}
 			break;
 		case LEFT:
-			pushingAvailable = this.getMap().getOnTheMapXY(getX() - 2, getY())
-					.getCrossable() == Crossable.PENETRABLE;
+			pushingAvailable = this.getMap().getOnTheMapXY(getX() - 2, getY()).getCrossable() == Crossable.PENETRABLE;
 			if (pushingAvailable) {
 				for (IMobile pawn : this.getMap().getPawns()) {
 					if (pawn.getPosition().x == getX() - 2 && pawn.getPosition().y == getY()
@@ -116,7 +114,7 @@ public class MyCharacter extends Mobile {
 				}
 			}
 			break;
-		case NOP:
+		case NONE:
 		default:
 			break;
 		}
@@ -151,7 +149,7 @@ public class MyCharacter extends Mobile {
 	}
 
 	@Override
-	public Boolean canMoveTo(final UserOrder direction) {
+	public boolean canMoveTo(final UserOrder direction) {
 		return this.mapAllowsMovementTo(direction) && this.pawnsAllowMovementTo(direction);
 	}
 
@@ -160,7 +158,7 @@ public class MyCharacter extends Mobile {
 	}
 
 	@Override
-	public Boolean isCrushed() {
+	public boolean isCrushed() {
 		for (IMobile pawn : this.getMap().getPawns()) {
 			if (pawn.getSprite().getConsoleImage() == 'M') {
 				if (this.getPosition().equals(pawn.getPosition()))
