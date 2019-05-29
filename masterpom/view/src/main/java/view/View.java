@@ -11,8 +11,7 @@ import contract.model.IMobile;
 import contract.model.IModel;
 import contract.view.IView;
 import showboard.BoardFrame;
-
-
+//XD
 public final class View implements IView, Runnable {
 
 
