@@ -6,11 +6,9 @@ import javax.swing.SwingUtilities;
 
 import contract.controller.IController;
 import contract.controller.UserOrder;
-import contract.model.IMap;
-import contract.model.IMobile;
 import contract.model.IModel;
 import contract.view.IView;
-import showboard.IPawn;
+import showboard.BoardFrame;
 
 /**
  * The Class View.
@@ -20,7 +18,7 @@ import showboard.IPawn;
 public final class View implements IView, Runnable {
 
 	/** The frame. */
-	private final ViewFrame viewFrame;
+	private final BoardFrame BoardFrame;
 
 	/**
 	 * Instantiates a new view.
@@ -28,7 +26,7 @@ public final class View implements IView, Runnable {
 	 * @param model the model
 	 */
 	public View(final IModel model) {
-		this.viewFrame = new ViewFrame(model);
+		this.BoardFrame = new BoardFrame();
 		SwingUtilities.invokeLater(this);
 	}
 
@@ -40,7 +38,7 @@ public final class View implements IView, Runnable {
 	 */
 	
 	public void show() {
-		this.viewFrame.setVisible(true);
+		
 	}
 	
 	protected static UserOrder keyCodeToUserOrder(int Code) {
@@ -71,7 +69,7 @@ public final class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		 viewFrame.requestFocus();
+		 BoardFrame.requestFocus();
 	}
     
 	/**public View(IMap map, IMobile Character, IMobile []Pawns) { test
@@ -85,7 +83,7 @@ public final class View implements IView, Runnable {
 	 * @param controller the new controller
 	 */
 	public void setController(final IController controller) {
-		this.viewFrame.setController(controller);
+		this.BoardFrame.setController(controller);
 	}
 
 	public void updateBoardFrame() {
