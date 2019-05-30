@@ -1,31 +1,29 @@
 package main;
 
+import java.awt.Window;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
+import contract.main.IMain;
 
-import contract.controller.IController;
-import contract.model.IModel;
-import controller.Controller;
-import model.Model;
-import view.ViewFrame;
+public class Main implements IMain {
 
-public abstract class Main {
+	static int TILESIZE = 32;
+	static int WIDTH = 16 * TILESIZE;
+	static int HEIGHT = 16 * TILESIZE;
+	static int OFFSETX = 0;
+	static int OFFSETY = 0;
 
 	public static void main(final String[] args) throws SQLException, IOException {
 
-		String id = JOptionPane.showInputDialog("Please input level of the map", 1);
-		int idAwnser = Integer.parseInt(id);
+		Window w = new Window("Boulder dash", WIDTH, HEIGHT);
 
-		final IModel model = new Model(idAwnser);
-		final ViewFrame view = new ViewFrame(model.getMap(), model.getMyCharacter(), model.getMap().getPawns());
-		final IController controller = new Controller(view, model);
+		w.init();
 
-		view.setOrderPerformer(controller.getOrderPeformer());
+		while (true) {
+			w.update();
+			w.repaint();
 
-		controller.start();
-
+		}
 	}
-
 }

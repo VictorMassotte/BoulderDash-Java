@@ -1,48 +1,19 @@
 package mobile;
 
-import java.awt.Rectangle;
-import java.io.IOException;
+public class Diamond extends Sprite {
 
-import Strategy.DiamondStrategy;
-import contract.controller.IStrategy;
-import contract.model.Crossable;
-import contract.model.IMap;
-import contract.model.IMobile;
-import contract.model.Sprite;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-public abstract class Diamond extends Mobile {
-
-	private static Sprite sprite = new Sprite('D', Sprite.mapTileSet, new Rectangle(64, 0, 16, 16));
-
-	private static IStrategy strategy = new DiamondStrategy();
-
-	public Diamond(int x, int y, IMap map) throws IOException {
-		super(x, y, sprite, map, Crossable.MINEABLE);
-		sprite.loadImage();
+	public Diamond() {
+		super();
+		this.path = "diamond.png";
+		this.setImage();
 	}
 
-	public void moveLeft() {
-		super.moveLeft();
+	public String toString() {
+		return "type:Diamond " + super.toString();
 	}
-
-	public void moveRight() {
-		super.moveRight();
-	}
-
-	public void moveDown() {
-		super.moveDown();
-	}
-
-	protected void die() {
-
-	}
-
-	public void doNothing() {
-		super.doNothing();
-	}
-
-	public void followMyStrategy() {
-		Diamond.strategy.followStrategy((IMobile) this, this.getMap());
-	}
-
 }
