@@ -16,14 +16,14 @@ public class Main implements IMain {
 
 	public static void main(final String[] args) throws SQLException, IOException {
 
-		Window w = new Window("Boulder dash", WIDTH, HEIGHT);
+	/*	Window w = new Window("Boulder dash", WIDTH, HEIGHT);
 
 		w.init();
 
 		while (true) {
 			w.update();
 			w.repaint();
-
+*/
 		}
 	}
-}
+
