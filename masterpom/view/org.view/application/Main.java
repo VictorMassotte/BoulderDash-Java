@@ -1,12 +1,11 @@
 package application;
 
+import contract.main.IMain;
 import controller.ControllerFenetre;
 import controller.ControllerMenu;
 import view.Fenetre;
-import view.PanneauApp;
-import view.PanneauMenu;
 
-public class Main {
+public class Main implements IMain {
 	
 	private static  Fenetre f = new Fenetre();
     
@@ -19,5 +18,6 @@ public class Main {
 
 
 	}
+
 
 

@@ -16,6 +16,7 @@ public class PanneauMap extends JPanel {
 
 	public PanneauMap() {
 		super();
+		
 		level1 = new Map1();
 		level2 = new Map2();
 		level3 = new Map3();

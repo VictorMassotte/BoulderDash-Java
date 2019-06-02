@@ -13,5 +13,6 @@ public class Map5 extends JPanel{
 		
 		this.add(Map5);
 	}
+	
 
 }

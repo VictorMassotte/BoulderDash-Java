@@ -10,6 +10,7 @@ public interface ISprite {
 	public Boolean isActive = true;
 	public int speed = 0;
 	public int time = 0;
+	
 
 	public void setPosX(int i);
 

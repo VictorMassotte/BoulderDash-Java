@@ -64,6 +64,10 @@ public class Sprite extends JPanel implements ISprite {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	
 
 	public void setPosX(int pX) {
 		this.posX = pX;

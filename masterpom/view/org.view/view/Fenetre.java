@@ -15,6 +15,7 @@ public class Fenetre extends JFrame{
 		super();
 		login = new PanneauLogin();
 		panneauAp = new PanneauApp();
+		
 		cl = new CardLayout();
 		this.setLayout(cl);
 		this.getContentPane().add("login", login);
