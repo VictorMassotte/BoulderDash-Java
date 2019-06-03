@@ -1,8 +1,10 @@
 package model.DAO;
 
+import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 import com.mysql.jdbc.Connection;
 
@@ -41,24 +43,29 @@ public class MapDAO extends DAO<GameMap> {
 		return false;
 	}
 
-	public GameMap find(int id) {
-		GameMap map = new GameMap();
+	final ResultSet resultSet;
+	public int map_number = 1;
 
-		try {
-			final String sql = "call level" + id;
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				map = new GameMap(id, resultSet.getString("map"));
-				System.out.println(resultSet.getString("maps"));
-			}
-			return map;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+	public GameMap find(final int id) {
+
+
+        try {
+            final String sql = "SELECT map FROM map WHERE id ="+ map_number ;
+            final CallableStatement call = this.getConnection().prepareCall(sql);
+            call.execute();
+            if (resultSet.next()) {
+                try {
+                    this.resultSet;
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        } catch (final SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 	public void init() {
 		Hero hero = new Hero();
