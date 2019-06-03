@@ -1,7 +1,6 @@
 
 package main;
 
-import java.awt.Window;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -17,15 +16,16 @@ public class Main implements IMain {
 
 	public static void main(final String[] args) throws SQLException, IOException {
 
-		Window w = new Window("Boulder dash", WIDTH, HEIGHT);
-
-		w.init();
-
-		while (true) {
-			w.update();
-			w.repaint();
-
-		}
+		/*
+		 * en fonction du main de Victor Window w = new Window("Boulder dash", WIDTH,
+		 * HEIGHT);
+		 * 
+		 * w.init();
+		 * 
+		 * while (true) { w.update(); w.repaint();
+		 * 
+		 * }
+		 */
 	}
 
 }
