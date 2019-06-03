@@ -16,13 +16,24 @@ import mobile.Hero;
 import mobile.Rock;
 import mobile.Sprite;
 import motionless.GameMap;
+<<<<<<< HEAD
 import view.PanneauMap;
+=======
+import view.PanneauMap; 
+>>>>>>> branch 'master' of https://github.com/VictorMassotte/boulderdash
 
 public class MapDAO extends DAO<GameMap> {
 
 	private GameMap obj;
 
+<<<<<<< HEAD
 	public MapDAO(Connection conn) throws SQLException {
+=======
+	private GameMap obj;
+
+	public MapDAO(Connection conn) throws SQLException
+	{
+>>>>>>> branch 'master' of https://github.com/VictorMassotte/boulderdash
 		super(conn);
 	}
 
@@ -57,16 +68,29 @@ public class MapDAO extends DAO<GameMap> {
 			e.printStackTrace();
 		}
 		return null;
+<<<<<<< HEAD
 	}
 
+=======
+	 }	
+    			
+>>>>>>> branch 'master' of https://github.com/VictorMassotte/boulderdash
 	public void init() {
 		Hero hero = new Hero();
 		PanneauMap.add(hero);
 
+<<<<<<< HEAD
 		for (int y = 0; y < 30; y++) {
 			for (int x = 0; x < 30; x++) {
 				Sprite sprite;
+=======
 
+        for (int y = 0; y < 30; y++) {
+            for (int x = 0; x < 30; x++) {
+                Sprite sprite;
+>>>>>>> branch 'master' of https://github.com/VictorMassotte/boulderdash
+
+<<<<<<< HEAD
 				switch (map[y][x]) {
 				case 0:
 					sprite = new Block();
@@ -97,4 +121,35 @@ public class MapDAO extends DAO<GameMap> {
 			}
 		}
 	}
+=======
+                switch (map[y][x]) {
+                case 1:
+                    sprite = new Block();
+                    break;
+                case 2:
+                    sprite = new Dirt();
+                    break;
+                case 3:
+                    sprite = new Rock();
+                    break;
+                case 4:
+                    sprite = new Diamond();
+                    break;
+                case 6:
+                    sprite = new End();
+                    break;
+                default:
+                    sprite = new Empty();
+                    if (map[y][x] == 5) {
+                        hero.setPosX(x * IMain.TILESIZE);
+                        hero.setPosY(y * IMain.TILESIZE);
+                    }
+                    break;
+                }
+                sprite.setPosX(x * IMain.TILESIZE);
+                sprite.setPosY(y * IMain.TILESIZE);
+                PanneauMap.add(sprite);
+            }
+        }
+>>>>>>> branch 'master' of https://github.com/VictorMassotte/boulderdash
 }

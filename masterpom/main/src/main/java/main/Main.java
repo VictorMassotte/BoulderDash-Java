@@ -17,7 +17,8 @@ public class Main implements IMain {
 	public static void main(final String[] args) throws SQLException, IOException {
 
 		/*
-		 * Window w = new Window("Boulder dash", WIDTH, HEIGHT);
+		 * en fonction du main de Victor Window w = new Window("Boulder dash", WIDTH,
+		 * HEIGHT);
 		 * 
 		 * w.init();
 		 * 
