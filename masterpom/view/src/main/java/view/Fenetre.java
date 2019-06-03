@@ -3,19 +3,24 @@ package view;
 import java.awt.CardLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-public class Fenetre extends JFrame{
+/**
+ * <h1>The Class Fenetre provides the code of the model view.</h1>
+ * 
+ * 
+ * @author Kevin Meffodong
+ * @version 1.0
+ */
+public class Fenetre extends JFrame {
 	private PanneauLogin login;
 	private PanneauApp panneauAp;
 	private CardLayout cl;
-	
-	
+
 	public Fenetre() {
 		super();
 		login = new PanneauLogin();
 		panneauAp = new PanneauApp();
-		
+
 		cl = new CardLayout();
 		this.setLayout(cl);
 		this.getContentPane().add("login", login);
@@ -23,30 +28,27 @@ public class Fenetre extends JFrame{
 		cl.show(this.getContentPane(), "login");
 		this.setTitle("Boudler Dash");
 		this.setSize(1000, 1000);
-	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.setLocationRelativeTo(null);
-	    this.setVisible(true);
-			
-		
-		}
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
 
+	}
 
 	public PanneauLogin getLogin() {
 		return login;
 	}
 
-
 	public PanneauApp getPanneauAp() {
 		return panneauAp;
 	}
 
-
 	public CardLayout getCl() {
 		return cl;
 	}
-	   public static void main(String args[]) {
-		   Fenetre f = new Fenetre();
-		   
-	   }
+
+	public static void main(String args[]) {
+		Fenetre f = new Fenetre();
+
+	}
 
 }

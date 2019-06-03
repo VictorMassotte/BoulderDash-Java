@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,17 +7,23 @@ import mobile.Hero;
 import mobile.Sprite;
 import view.Fenetre;
 
+/**
+ * <h1>The Class ControllerMenu provides the code of the model view.</h1>
+ * 
+ * 
+ * @author Kevin Meffodong
+ * @version 1.0
+ */
 public class ControllerMenu implements ActionListener {
-     
 
 	private Fenetre fenetre;
 	private Hero he;
-    private Sprite sprite;
-    
-     public ControllerMenu(Fenetre fenetre) {
+	private Sprite sprite;
+
+	public ControllerMenu(Fenetre fenetre) {
 		super();
 		this.fenetre = fenetre;
-		
+
 		fenetre.getPanneauAp().getMenuPanel().getLevel1().addActionListener(this);
 		fenetre.getPanneauAp().getMenuPanel().getLevel2().addActionListener(this);
 		fenetre.getPanneauAp().getMenuPanel().getLevel3().addActionListener(this);
@@ -28,34 +33,30 @@ public class ControllerMenu implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		 Object source = e.getSource();
-		 
-		 if(source == fenetre.getPanneauAp().getMenuPanel().getLevel1()) {
-			fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level1");
-			
-			
-			
-			
-		 }
-		 if(source == fenetre.getPanneauAp().getMenuPanel().getLevel2()) {
-				fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level2");
-				
-			 }
-		 if(source == fenetre.getPanneauAp().getMenuPanel().getLevel3()) {
-				fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level3");
-				
-			 }		 
-		 if(source == fenetre.getPanneauAp().getMenuPanel().getLevel4()) {
-				fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level4");
-				
-			 }
-		 if(source == fenetre.getPanneauAp().getMenuPanel().getLevel5()) {
-				fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level5");
-			
-			 }
-	
-}
-	
 
-}	
+		Object source = e.getSource();
+
+		if (source == fenetre.getPanneauAp().getMenuPanel().getLevel1()) {
+			fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level1");
+
+		}
+		if (source == fenetre.getPanneauAp().getMenuPanel().getLevel2()) {
+			fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level2");
+
+		}
+		if (source == fenetre.getPanneauAp().getMenuPanel().getLevel3()) {
+			fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level3");
+
+		}
+		if (source == fenetre.getPanneauAp().getMenuPanel().getLevel4()) {
+			fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level4");
+
+		}
+		if (source == fenetre.getPanneauAp().getMenuPanel().getLevel5()) {
+			fenetre.getPanneauAp().getMapPanel().getCl().show(fenetre.getPanneauAp().getMapPanel(), "level5");
+
+		}
+
+	}
+
+}

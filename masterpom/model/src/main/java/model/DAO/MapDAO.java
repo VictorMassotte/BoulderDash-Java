@@ -50,7 +50,8 @@ public class MapDAO extends DAO<GameMap> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				map = new GameMap(id, resultSet.getString("content"));
+				map = new GameMap(id, resultSet.getString("map"));
+				System.out.println(resultSet.getString("maps"));
 			}
 			return map;
 		} catch (final SQLException e) {
@@ -62,7 +63,6 @@ public class MapDAO extends DAO<GameMap> {
 	public void init() {
 		Hero hero = new Hero();
 		PanneauMap.add(hero);
-
 
 		for (int y = 0; y < 30; y++) {
 			for (int x = 0; x < 30; x++) {

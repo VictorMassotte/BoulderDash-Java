@@ -1,7 +1,5 @@
 package mobile;
 
-import contract.model.IBlock;
-
 /**
  * <h1>The Class Block provides the code of the model component.</h1>
  * 
@@ -10,7 +8,7 @@ import contract.model.IBlock;
  * @version 1.0
  */
 
-public class Block extends Sprite implements IBlock {
+public class Block extends Sprite {
 
 	public Block() {
 		super();
