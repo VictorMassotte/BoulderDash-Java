@@ -57,7 +57,6 @@ public class MapDAO extends DAO<GameMap> {
                 try {
                     this.resultSet;
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
