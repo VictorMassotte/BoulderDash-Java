@@ -6,15 +6,22 @@ import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
 
+import contract.main.IMain;
+import factory.Empty;
 import factory.End;
-import mobile.*;
-import view.PanneauMap;
-import motionless.GameMap; 
+import mobile.Block;
+import mobile.Diamond;
+import mobile.Dirt;
+import mobile.Hero;
+import mobile.Rock;
+import mobile.Sprite;
+import motionless.GameMap;
+import view.PanneauMap; 
 
 
 public class MapDAO extends DAO<GameMap>{
 
-	//private Map obj;
+	private GameMap obj;
 
 	public MapDAO(Connection conn) throws SQLException
 	{
@@ -54,11 +61,12 @@ public class MapDAO extends DAO<GameMap>{
 			e.printStackTrace();
 		}
 		return null;
-	 }
-	
+	 }	
+    			
 	public void init() {
         Hero hero = new Hero();
         PanneauMap.add(hero);
+
 
         for (int y = 0; y < 30; y++) {
             for (int x = 0; x < 30; x++) {
@@ -83,14 +91,14 @@ public class MapDAO extends DAO<GameMap>{
                 default:
                     sprite = new Empty();
                     if (map[y][x] == 5) {
-                        hero.setPosX(x * Main.TILESIZE);
-                        hero.setPosY(y * Main.TILESIZE);
+                        hero.setPosX(x * IMain.TILESIZE);
+                        hero.setPosY(y * IMain.TILESIZE);
                     }
                     break;
                 }
-                sprite.setPosX(x * Main.TILESIZE);
-                sprite.setPosY(y * Main.TILESIZE);
-                pan.add(sprite);
+                sprite.setPosX(x * IMain.TILESIZE);
+                sprite.setPosY(y * IMain.TILESIZE);
+                PanneauMap.add(sprite);
             }
         }
 }
