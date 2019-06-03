@@ -41,6 +41,7 @@ public class SpriteTest {
 
 	@Test
 	public void testSetPosX() {
+
 	}
 
 	@Test

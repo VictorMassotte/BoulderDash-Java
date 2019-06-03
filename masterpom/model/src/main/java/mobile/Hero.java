@@ -7,22 +7,12 @@ public class Hero extends Sprite implements IHero {
 	private static final long serialVersionUID = 1L;
 	private Boolean alive = true;
 	private int vy = -18;
-    private String chemin = "C://Users//Kevdu//git//boulderdash1//masterpom//main/hero.png";
-	
-    		
-    	public Hero() {
+
+	public Hero() {
 		super();
 		this.path = "hero.png";
 		this.setImage();
 	}
-
-	public String getChemin() {
-			return chemin;
-		}
-
-		public void setChemin(String chemin) {
-			this.chemin = chemin;
-		}
 
 	public String toString() {
 		return "type:Hero " + super.toString();
