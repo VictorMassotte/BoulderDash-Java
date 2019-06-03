@@ -40,24 +40,24 @@ public class Controller implements IController, IOrderPerformer{
      */
     @Override
     public final void play() throws InterruptedException {
-        while (this.getModel().getMyVehicle().isAlive()) {
+        while (this.getModel().getMyCharac().isAlive()) {
             Thread.sleep(speed);
             switch (this.getStackOrder()) {
             case UP:
-            	this.getModel().getMyVehicle().moveUp();
+            	this.getModel().getMyCharac().moveUp();
                 break;
             case DOWN:
-            	this.getModel().getMyVehicle().moveDown();
+            	this.getModel().getMyCharac().moveDown();
                 break;
             case RIGHT:
-            	this.getModel().getMyVehicle().moveRight();
+            	this.getModel().getMyCharac().moveRight();
                 break;
             case LEFT:
-            	this.getModel().getMyVehicle().moveLeft();
+            	this.getModel().getMyCharac().moveLeft();
                 break;
             case NONE:
             default:
-            	this.getModel().getMyVehicle().doNothing();
+            	this.getModel().getMyCharac().doNothing();
             	break;
             }
             this.clearStackOrder();
