@@ -61,10 +61,10 @@ public class Controller implements IController, IOrderPerformer{
             	break;
             }
             this.clearStackOrder();
-            if (this.getModel().getMyVehicle().isAlive()) {
-                this.getModel().getMyVehicle().moveDown();
+            if (this.getModel().getMyCharac().isAlive()) {
+                this.getModel().getMyCharac().moveDown();
             }
-            this.getView().followMyVehicle();
+            this.getView().followMyCharac();
         }
         this.getView().displayMessage("CRASH !!!!!!!!!.");
     }
