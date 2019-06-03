@@ -2,9 +2,18 @@ package factory;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.Timer;
 
 import mobile.Sprite;
+
+/**
+ * <h1>The Class Explode provides the code of the model component.</h1>
+ * 
+ * 
+ * @author Victor Massotte
+ * @version 1.0
+ */
 
 public class Explode extends Sprite {
 

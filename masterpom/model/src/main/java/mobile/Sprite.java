@@ -12,6 +12,14 @@ import javax.swing.JPanel;
 import contract.main.IMain;
 import contract.model.ISprite;
 
+/**
+ * <h1>The Class Sprite provides the code of the model component.</h1>
+ * 
+ * 
+ * @author Victor Massotte
+ * @version 1.0
+ */
+
 public class Sprite extends JPanel implements ISprite {
 
 	private static final long serialVersionUID = 1L;

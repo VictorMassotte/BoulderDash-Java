@@ -1,5 +1,13 @@
 package mobile;
 
+/**
+ * <h1>The Class Rock provides the code of the model component.</h1>
+ * 
+ * 
+ * @author Thomas Lima
+ * @version 1.0
+ */
+
 public class Rock extends Sprite {
 
 	private static final long serialVersionUID = 1L;

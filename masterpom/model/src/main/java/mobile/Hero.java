@@ -2,6 +2,14 @@ package mobile;
 
 import contract.model.IHero;
 
+/**
+ * <h1>The Class Hero provides the code of the model component.</h1>
+ * 
+ * 
+ * @author Thomas Lima
+ * @version 1.0
+ */
+
 public class Hero extends Sprite implements IHero {
 
 	private static final long serialVersionUID = 1L;
