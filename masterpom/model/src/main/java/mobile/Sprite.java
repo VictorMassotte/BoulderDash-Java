@@ -14,9 +14,6 @@ import contract.model.ISprite;
 
 public class Sprite extends JPanel implements ISprite {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	protected int posX = 0;
 	protected int posY = 0;
@@ -64,10 +61,6 @@ public class Sprite extends JPanel implements ISprite {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
 
 	public void setPosX(int pX) {
 		this.posX = pX;
