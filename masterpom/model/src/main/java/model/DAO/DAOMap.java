@@ -49,12 +49,6 @@ public class DAOMap {
 
 	private static Map resultToMap(final ResultSet result, int level) throws SQLException, IOException {
 
-		int count = 0;
-		int countB = 0;
-		int countD = 0;
-		int countE = 0;
-		int countC = 0;
-
 		Map tempMap = new Map(level);
 
 		while (result.next()) {
@@ -63,7 +57,7 @@ public class DAOMap {
 				for (int x = 0; x < 30; x++) {
 					Sprite sprite = null;
 
-					switch (x) {
+					switch (x = 30) {
 					case 0:
 						sprite = new Block();
 						break;
@@ -83,8 +77,7 @@ public class DAOMap {
 				}
 			}
 		}
-		System.out.println(count);
-		System.out.println("B = " + countB + "\nE = " + countE + "\nD = " + countD + "\nC = " + countC);
+
 		return tempMap;
 	}
 
