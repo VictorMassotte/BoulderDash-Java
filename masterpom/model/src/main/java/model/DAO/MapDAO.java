@@ -101,4 +101,5 @@ public class MapDAO extends DAO<GameMap>{
                 PanneauMap.add(sprite);
             }
         }
+	}
 }
