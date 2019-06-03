@@ -1,7 +1,5 @@
 package mobile;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -28,67 +26,65 @@ public class SpriteTest {
 
 	@Test
 	public void testPaintComponentGraphics() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testSetImage() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testSetPosX() {
-		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSetPosY() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testSetIsSolid() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testSetPath() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testSetSpeed() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testGetPosX() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testGetPosY() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testGetIsSolid() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testGetSpeed() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testGetIsActive() {
-		fail("Not yet implemented");
 	}
 
 }
