@@ -1,22 +1,20 @@
 
 package main;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import controller.Controller;
+import modelle.Model;
+import view.View;
 
-import contract.main.IMain;
-import controller.ControllerFenetre;
-import controller.ControllerMenu;
-import view.Fenetre;
+public class Main {
 
-public class Main implements IMain {
+	public static void main(final String[] args) {
 
-	private static Fenetre f = new Fenetre();
+		final Model model = new Model();
+		final View view = new View(model);
+		final Controller controller = new Controller(view, model);
+		view.setController(controller);
 
-	public static void main(final String[] args) throws SQLException, IOException {
-
-		ControllerFenetre c = new ControllerFenetre(f);
-		ControllerMenu m = new ControllerMenu(f);
+		controller.control();
 
 	}
 
