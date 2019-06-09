@@ -57,6 +57,37 @@ public class DAOMaps extends DAOEntity<Maps> {
 	}
 
 	public Maps find(String code) {
+=======
+				maps = new Maps(code, resultSet.getString("nom"), resultSet.getInt("diamond"), resultSet.getInt("time"),
+						resultSet.getString("map"));
+			}return maps;
+
+	}catch(
+
+	final SQLException e)
+	{
+			e.printStackTrace();
+		}return null;
+	}
+
+	@Override
+	public boolean create(Maps entity) {
+		return false;
+	}
+
+	@Override
+	public boolean update(Maps entity) {
+		return false;
+	}
+
+	@Override
+	public boolean delete(Maps entity) {
+		return false;
+	}
+
+	public Maps find(String code) {
+		// TODO Auto-generated method stub
+>>>>>>> branch 'master' of https://github.com/VictorMassotte/boulderdash
 		return null;
 	}
 
