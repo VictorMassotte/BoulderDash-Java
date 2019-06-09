@@ -36,7 +36,7 @@ public final class Model extends Observable implements IModel {
 
 	// ------------------------------------------------------------------------------
 
-	public void loadMaps(final String code) {
+	public void loadMaps(final int code) {
 		try {
 			final DAOMaps daoMaps = new DAOMaps(DBConnection.getInstance().getConnection());
 			this.setMaps(daoMaps.find(code));
@@ -58,18 +58,13 @@ public final class Model extends Observable implements IModel {
 		return this;
 	}
 
-	// ------------------------------------------------------------------------------
-
 	@Override
-	public void loadMaps(final int map) {
-		try {
-			final DAOMaps daoMaps = new DAOMaps(DBConnection.getInstance().getConnection());
-			this.setMaps(daoMaps.find(map));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
+	public void loadMaps(String code) {
+		// TODO Auto-generated method stub
 
 	}
+
+	// ------------------------------------------------------------------------------
 
 	// ------------------------------------------------------------------------------
 

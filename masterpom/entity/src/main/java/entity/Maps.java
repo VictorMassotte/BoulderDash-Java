@@ -16,9 +16,8 @@ public class Maps extends Entity {
 	private int time;
 	private String map;
 
-	public Maps(final int id, final String nom, final int diamond, final int time, final String map) {
+	public Maps(final int id, final int diamond, final int time, final String map) {
 		this.setId(id);
-		this.setNom(nom);
 		this.setDiamond(diamond);
 		this.setTime(time);
 		this.setMap(map);
@@ -28,7 +27,7 @@ public class Maps extends Entity {
 	// -----------------------------------------------------------------
 
 	public Maps() {
-		this(0, "", 0, 0, "");
+		this(0, 0, 0, "");
 
 	}
 
